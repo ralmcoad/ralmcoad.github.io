@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><title>순환기 · Key message</title>
+  <link rel="stylesheet" href="../assets/obsidian.css">
+  <style id="MJX-QE-styles">:root {
+  --mjx-fg-red: 255, 0, 0;
+  --mjx-fg-green: 0, 255, 0;
+  --mjx-fg-blue: 0, 0, 255;
+  --mjx-fg-yellow: 255, 255, 0;
+  --mjx-fg-cyan: 0, 255, 255;
+  --mjx-fg-magenta: 255, 0, 255;
+  --mjx-fg-white: 255, 255, 255;
+  --mjx-fg-black: 0, 0, 0;
+  --mjx-bg-red: 255, 0, 0;
+  --mjx-bg-green: 0, 255, 0;
+  --mjx-bg-blue: 0, 0, 255;
+  --mjx-bg-yellow: 255, 255, 0;
+  --mjx-bg-cyan: 0, 255, 255;
+  --mjx-bg-magenta: 255, 0, 255;
+  --mjx-bg-white: 255, 255, 255;
+  --mjx-bg-black: 0, 0, 0;
+  --mjx-live-bg-color: white;
+  --mjx-live-shadow-color: #888;
+  --mjx-live-border-color: #CCCCCC;
+  --mjx-bg1-color: rgba(var(--mjx-bg-blue), var(--mjx-bg1-alpha));
+  --mjx-fg1-color: rgba(var(--mjx-fg-black), 1);
+  --mjx-bg2-color: rgba(var(--mjx-bg-red), 1);
+  --mjx-fg2-color: rgba(var(--mjx-fg-black), 1);
+  --mjx-bg1-alpha: 0.2;
+  --mjx-fg1-alpha: 1;
+  --mjx-bg2-alpha: 1;
+  --mjx-fg2-alpha: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --mjx-bg-blue: 132, 132, 255;
+      --mjx-bg-white: 0, 0, 0;
+      --mjx-bg-black: 255, 255, 255;
+      --mjx-fg-white: 0, 0, 0;
+      --mjx-fg-black: 255, 255, 255;
+      --mjx-live-bg-color: #222025;
+      --mjx-live-shadow-color: black;
+      --mjx-live-border-color: #7C7C7C;
+      --mjx-bg1-alpha: 0.3;
+      --mjx-fg1-alpha: 1;
+      --mjx-bg2-alpha: 1;
+      --mjx-fg2-alpha: 1;
+  }
+}
+
+.MJX_LiveRegion {
+  position: absolute;
+  top: 0;
+  display: none;
+  width: auto;
+  height: auto;
+  padding: 0;
+  opacity: 1;
+  z-index: 202;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background-color: var(--mjx-live-bg-color);
+  box-shadow: 0px 5px 20px var(--mjx-live-shadow-color);
+  border: 2px solid var(--mjx-live-border-color);
+}
+
+.MJX_LiveRegion_Show {
+  display: block;
+}
+
+.MJX_LiveRegion > div {
+  color: var(--mjx-fg1-color);
+  background-color: var(--mjx-bg1-color);
+}
+
+mjx-container [data-sre-highlight-1]:not([data-mjx-collapsed], rect) {
+  color: var(--mjx-fg1-color) ! important;
+  fill: var(--mjx-fg1-color) ! important;
+}
+
+mjx-container:not([data-mjx-clone-container]) [data-sre-highlight-1]:not([data-sre-enclosed], rect) {
+  background-color: var(--mjx-bg1-color) ! important;
+}
+
+mjx-container rect[data-sre-highlight-1]:not([data-sre-enclosed]) {
+  fill: var(--mjx-bg1-color) ! important;
+}
+
+mjx-container [data-sre-highlight-2] {
+  color: var(--mjx-fg2-color) ! important;
+  background-color: var(--mjx-bg2-color) ! important;
+  fill: var(--mjx-fg2-color) ! important;
+}
+
+mjx-container rect[data-sre-highlight-2] {
+  fill: var(--mjx-bg2-color) ! important;
+}</style><style>
+  @font-face {font-family:'함초롬바탕';src:url('../assets/fonts/hcr-batang.woff2');font-weight:400;font-style:normal;}
+  @font-face {font-family:'함초롬바탕';src:url('../assets/fonts/hcr-batang-bold.woff2');font-weight:700;font-style:normal;}
+  @page {size:A4 portrait;margin:0;}
+  * {box-sizing:border-box;}
+  html,body {margin:0!important;padding:0!important;width:210mm!important;height:auto!important;overflow:visible!important;contain:none!important;position:static!important;}
+  body > #pages {display:block!important;}
+  body {--font-text-override:'함초롬바탕';--font-print-override:'함초롬바탕';--font-text:'함초롬바탕',Arial,sans-serif;--font-text-size:8.4pt;--font-interface:var(--font-text);--text-accent:#171717;--link-color:#171717;--link-color-hover:#171717;--p-spacing:1.1mm;--list-spacing:0;--list-indent:1.55em;--line-height-normal:1.25;--table-border-color:#adadad;--table-column-min-width:0;--table-text-size:8pt;--table-header-size:8pt;--table-line-height:1.2;background:white!important;color:#202020!important;font-family:var(--font-text)!important;font-size:8.4pt!important;line-height:1.25!important; -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .page {width:210mm;height:297mm;padding:7mm 8mm 7mm;position:relative;overflow:hidden;break-after:page;background:white;}
+  .page:last-child {break-after:auto;}
+  .page-header {height:6.2mm;display:flex;align-items:flex-start;justify-content:space-between;border-bottom:0.2mm solid #565656;font-size:8pt;line-height:1.2;margin-bottom:2.2mm;color:#555;}
+  .page-header b {color:#222;font-size:9pt;}
+  .columns {height:268mm;min-height:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:minmax(0,1fr);column-gap:4mm;}
+  .column {min-width:0;min-height:0;height:100%;position:relative;}
+  .column + .column:before {position:absolute;left:-2.05mm;top:0;bottom:0;content:'';border-left:0.15mm solid #d2d2d2;}
+  .column.markdown-rendered {font-family:var(--font-text)!important;font-size:8.4pt!important;line-height:1.25!important;overflow:visible!important;}
+  .section {margin:0 0 1.35mm;padding:0;}
+  .section-title {font-family:var(--font-text)!important;font-size:9.1pt!important;line-height:1.22!important;font-weight:700!important;letter-spacing:0!important;margin:0 0 0.65mm!important;padding:0.8mm 0 0.45mm!important;border-bottom:0.15mm solid #a0a0a0;overflow-wrap:anywhere;}
+  .continued {font-weight:400;font-size:7pt;color:#666;white-space:nowrap;}
+  .column.markdown-rendered p {margin:0.5mm 0!important;}
+  .column.markdown-rendered ol,.column.markdown-rendered ul {margin:0.4mm 0!important;padding-left:1.45em!important;}
+  .column.markdown-rendered ol ol,.column.markdown-rendered ol ul {margin:0.25mm 0 0!important;}
+  .column.markdown-rendered li {padding:0!important;margin:0.28mm 0!important;overflow-wrap:anywhere;}
+  .column.markdown-rendered li::marker {color:#444;font-size:1em;}
+  .column.markdown-rendered li p {margin:0!important;}
+  .column.markdown-rendered img {display:block;max-width:100%!important;width:auto;height:auto;max-height:71mm;object-fit:contain;margin:0.8mm auto 1mm!important;}
+  .image-embed {display:block;width:100%;}
+  .column.markdown-rendered a {color:#171717;text-decoration:underline;text-decoration-color:#999;text-underline-offset:1px;cursor:default;}
+  .column.markdown-rendered table {width:100%!important;table-layout:fixed;margin:1mm 0!important;border-collapse:collapse;}
+  .column.markdown-rendered td,.column.markdown-rendered th {font-family:var(--font-text)!important;font-size:8pt!important;line-height:1.2!important;min-width:0!important;max-width:none!important;overflow-wrap:anywhere;word-break:normal;padding:0.7mm 0.65mm!important;}
+  .column.markdown-rendered th {font-weight:700;background:#f3f3f3;}
+  .column.markdown-rendered strong {font-weight:700;}
+  .column.markdown-rendered sup {font-size:0.7em;line-height:0;}
+  .footnotes {font-size:7.4pt;line-height:1.2;margin-top:1mm;padding-top:0.6mm;border-top:0.15mm solid #ccc;color:#4d4d4d;}
+  .footnotes>div {margin:0.5mm 0;}
+  .fn-no {font-weight:700;}
+  .footer {position:absolute;bottom:4mm;left:8mm;right:8mm;display:flex;justify-content:space-between;color:#777;font-size:7pt;line-height:1.2;}
+  #measure {position:absolute;left:-10000px;top:0;width:62mm;}
+  </style><style id="MJX-CHTML-styles">
+mjx-container[overflow="scroll"][display] {
+  overflow: auto clip;
+  min-width: initial !important;
+}
+
+mjx-container[overflow="truncate"][display] {
+  overflow: hidden clip;
+  min-width: initial !important;
+}
+
+mjx-container[display] {
+  display: block;
+  text-align: center;
+  justify-content: center;
+  margin: .7em 0;
+  padding: .3em 2px;
+}
+
+mjx-container[display][width="full"] {
+  display: flex;
+}
+
+mjx-container[justify="left"] {
+  text-align: left;
+  justify-content: left;
+}
+
+mjx-container[justify="right"] {
+  text-align: right;
+  justify-content: right;
+}
+
+mjx-container[jax="CHTML"] {
+  white-space: nowrap;
+}
+
+mjx-mo > mjx-c, mjx-mi > mjx-c, mjx-mn > mjx-c, mjx-ms > mjx-c, mjx-mtext > mjx-c {
+  clip-path: padding-box polygon(-1em -2px, calc(100% + 1em) -2px, calc(100% + 1em) calc(100% + 2px), -1em calc(100% + 2px));
+}
+
+mjx-stretchy-h {
+  clip-path: padding-box polygon(0 -2px, 100% -2px, 100% calc(100% + 2px), 0 calc(100% + 2px));
+  display: inline-block;
+}
+
+mjx-stretchy-v {
+  clip-path: padding-box polygon(-2px 0, calc(100% + 2px) 0, calc(100% + 2px) 100%, -2px 100%);
+  display: inline-block;
+  text-align: center;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > mjx-cell, mjx-row > mjx-base, mjx-row > mjx-under, mjx-row > mjx-over, mjx-row > mjx-den {
+  display: table-cell;
+}
+
+mjx-container [inline-breaks] {
+  display: inline;
+}
+
+mjx-container .mjx-selected {
+  outline: 2px solid black;
+}
+
+@media (prefers-color-scheme: dark) {
+  mjx-container .mjx-selected {
+    outline: 2px solid #C8C8C8;
+  }
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+mjx-container[has-speech="true"] {
+  position: relative;
+  cursor: default;
+}
+
+mjx-speech {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+mjx-speech:focus {
+  outline: none;
+}
+
+mjx-container a[data-mjx-href] {
+  color: LinkText;
+  cursor: pointer;
+}
+
+mjx-container a[data-mjx-href].mjx-visited {
+  color: VisitedText;
+}
+
+mjx-container > mjx-help {
+  display: none;
+  position: absolute;
+  top: -.3em;
+  right: -.5em;
+  width: .6em;
+  height: .6em;
+  cursor: pointer;
+}
+
+mjx-container[display="true"] > mjx-help {
+  position: sticky;
+  inset: -100% 0 100% 0;
+  margin: -.3em -.5em 0 -.1em;
+  right: 0;
+  top: initial;
+}
+
+mjx-help > svg {
+  stroke: black;
+  width: 100%;
+  height: 100%;
+}
+
+mjx-help > svg > circle {
+  stroke-width: 1.5px;
+  cx: 9px;
+  cy: 9px;
+  r: 9px;
+  fill: white;
+}
+
+mjx-help > svg > circle:nth-child(2) {
+  fill: var(--mjx-bg1-color);
+  r: 7px;
+}
+
+mjx-help > svg > line {
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+}
+
+mjx-help:hover > svg > circle:nth-child(2) {
+  fill: white;
+}
+
+mjx-container.mjx-explorer-active > mjx-help {
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (prefers-color-scheme: dark) /* explorer */ {
+  mjx-help > svg {
+    stroke: #E0E0E0;
+  }
+  mjx-help > svg > circle {
+    fill: #404040;
+  }
+  mjx-help > svg > circle:nth-child(2) {
+    fill: rgba(132, 132, 255, .3);
+  }
+  mjx-help:hover > svg > circle:nth-child(2) {
+    stroke: #AAAAAA;
+      fill: #404040;
+  }
+}
+
+mjx-math {
+  display: inline-block;
+  text-align: left;
+  line-height: 0;
+  text-indent: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  font-size-adjust: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  word-spacing: normal;
+  direction: ltr;
+  padding: 1px 0;
+}
+
+mjx-container[jax="CHTML"][display="true"] mjx-math {
+  padding: 0;
+}
+
+mjx-math[breakable] {
+  display: inline;
+}
+
+mjx-container[jax="CHTML"] mjx-break {
+  white-space: normal;
+  line-height: 0;
+  clip-path: rect(0 0 0 0);
+  font-family: MJX-BRK !important;
+}
+
+mjx-break[size="0"] {
+  letter-spacing: -0.999em;
+}
+
+mjx-break[size="1"] {
+  letter-spacing: -0.889em;
+}
+
+mjx-break[size="2"] {
+  letter-spacing: -0.833em;
+}
+
+mjx-break[size="3"] {
+  letter-spacing: -0.778em;
+}
+
+mjx-break[size="4"] {
+  letter-spacing: -0.722em;
+}
+
+mjx-break[size="5"] {
+  letter-spacing: -0.667em;
+}
+
+mjx-mn {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c {
+  display: inline-block;
+  width: 0;
+  text-align: right;
+}
+
+mjx-utext {
+  display: inline-block;
+  padding: .75em 0 .2em 0;
+}
+
+mjx-mo {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-stretchy-h > mjx-beg, mjx-stretchy-h > mjx-ext, mjx-stretchy-h > mjx-end, mjx-stretchy-h > mjx-mid {
+  display: inline-block;
+  width: 0;
+  text-align: right;
+}
+
+mjx-stretchy-h > mjx-ext {
+  clip-path: padding-box polygon(0 -1em, 100% -1em, 100% calc(100% + 1em), 0 calc(100% + 1em));
+  width: 100%;
+  border: 0px solid transparent;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+mjx-stretchy-v > mjx-beg, mjx-stretchy-v > mjx-ext, mjx-stretchy-v > mjx-end, mjx-stretchy-v > mjx-mid {
+  display: block;
+  height: 0;
+  margin: 0 auto;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-spacer {
+  display: block;
+}
+
+mjx-stretchy-v > mjx-ext {
+  clip-path: padding-box polygon(-1em 0, calc(100% + 1em) 0, calc(100% + 1em) 100%, -1em 100%);
+  height: 100%;
+  border: 0.1px solid transparent;
+  box-sizing: border-box;
+  white-space: pre;
+}
+
+mjx-mark {
+  display: inline-block;
+  height: 0;
+}
+
+mjx-msup {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-msubsup {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-script {
+  display: inline-block;
+  padding-right: .05em;
+  padding-left: .033em;
+}
+
+mjx-script > mjx-spacer {
+  display: block;
+}
+
+mjx-mi {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-container[jax="CHTML"] > mjx-math.TEX-N[breakable] > * {
+  font-family: MJX-TEX-ZERO, MJX-TEX-N;
+}
+
+.TEX-N {
+  font-family: MJX-TEX-ZERO, MJX-TEX-N;
+}
+
+.TEX-B {
+  font-family: MJX-TEX-ZERO, MJX-TEX-B;
+}
+
+.TEX-I {
+  font-family: MJX-TEX-ZERO, MJX-TEX-I;
+}
+
+.TEX-BI {
+  font-family: MJX-TEX-ZERO, MJX-TEX-BI;
+}
+
+.TEX-F {
+  font-family: MJX-TEX-ZERO, MJX-TEX-F;
+}
+
+.TEX-FB {
+  font-family: MJX-TEX-ZERO, MJX-TEX-FB;
+}
+
+.TEX-SS {
+  font-family: MJX-TEX-ZERO, MJX-TEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJX-TEX-ZERO, MJX-TEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJX-TEX-ZERO, MJX-TEX-SSI;
+}
+
+.TEX-M {
+  font-family: MJX-TEX-ZERO, MJX-TEX-M;
+}
+
+.TEX-SO {
+  font-family: MJX-TEX-ZERO, MJX-TEX-SO;
+}
+
+.TEX-LO {
+  font-family: MJX-TEX-ZERO, MJX-TEX-LO;
+}
+
+.TEX-C {
+  font-family: MJX-TEX-ZERO, MJX-TEX-C;
+}
+
+.TEX-CB {
+  font-family: MJX-TEX-ZERO, MJX-TEX-CB;
+}
+
+.TEX-OS {
+  font-family: MJX-TEX-ZERO, MJX-TEX-OS;
+}
+
+.TEX-OB {
+  font-family: MJX-TEX-ZERO, MJX-TEX-OB;
+}
+
+.TEX-MI {
+  font-family: MJX-TEX-ZERO, MJX-TEX-MI;
+}
+
+.TEX-V {
+  font-family: MJX-TEX-ZERO, MJX-TEX-V;
+}
+
+.TEX-S3 {
+  font-family: MJX-TEX-ZERO, MJX-TEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJX-TEX-ZERO, MJX-TEX-S4;
+}
+
+.MHC-M {
+  font-family: MJX-TEX-ZERO, MJX-MHC-M;
+}
+
+.MHC-N {
+  font-family: MJX-TEX-ZERO, MJX-MHC-N;
+}
+
+@font-face /* MHC-M */ {
+  font-family: MJX-MHC-M;
+  src: url("../assets/math/mjx-mhc-m.woff2") format("woff2");
+}
+
+@font-face /* MHC-N */ {
+  font-family: MJX-MHC-N;
+  src: url("../assets/math/mjx-mhc-n.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-ZERO */ {
+  font-family: MJX-TEX-ZERO;
+  src: url("../assets/math/mjx-tex-zero.woff2") format("woff2");
+}
+
+@font-face /* MJX-BRK */ {
+  font-family: MJX-BRK;
+  src: url("../assets/math/mjx-tex-brk.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-N */ {
+  font-family: MJX-TEX-N;
+  src: url("../assets/math/mjx-tex-n.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-B */ {
+  font-family: MJX-TEX-B;
+  src: url("../assets/math/mjx-tex-b.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-I */ {
+  font-family: MJX-TEX-I;
+  src: url("../assets/math/mjx-tex-i.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-BI */ {
+  font-family: MJX-TEX-BI;
+  src: url("../assets/math/mjx-tex-bi.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-F */ {
+  font-family: MJX-TEX-F;
+  src: url("../assets/math/mjx-tex-f.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-FB */ {
+  font-family: MJX-TEX-FB;
+  src: url("../assets/math/mjx-tex-fb.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-SS */ {
+  font-family: MJX-TEX-SS;
+  src: url("../assets/math/mjx-tex-ss.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-SSB */ {
+  font-family: MJX-TEX-SSB;
+  src: url("../assets/math/mjx-tex-ssb.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-SSI */ {
+  font-family: MJX-TEX-SSI;
+  src: url("../assets/math/mjx-tex-ssi.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-M */ {
+  font-family: MJX-TEX-M;
+  src: url("../assets/math/mjx-tex-m.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-SO */ {
+  font-family: MJX-TEX-SO;
+  src: url("../assets/math/mjx-tex-so.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-LO */ {
+  font-family: MJX-TEX-LO;
+  src: url("../assets/math/mjx-tex-lo.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-C */ {
+  font-family: MJX-TEX-C;
+  src: url("../assets/math/mjx-tex-c.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-CB */ {
+  font-family: MJX-TEX-CB;
+  src: url("../assets/math/mjx-tex-cb.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-OS */ {
+  font-family: MJX-TEX-OS;
+  src: url("../assets/math/mjx-tex-os.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-OB */ {
+  font-family: MJX-TEX-OB;
+  src: url("../assets/math/mjx-tex-ob.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-MI */ {
+  font-family: MJX-TEX-MI;
+  src: url("../assets/math/mjx-tex-mi.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-V */ {
+  font-family: MJX-TEX-V;
+  src: url("../assets/math/mjx-tex-v.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-S3 */ {
+  font-family: MJX-TEX-S3;
+  src: url("../assets/math/mjx-tex-s3.woff2") format("woff2");
+}
+
+@font-face /* MJX-TEX-S4 */ {
+  font-family: MJX-TEX-S4;
+  src: url("../assets/math/mjx-tex-s4.woff2") format("woff2");
+}
+
+mjx-c.mjx-c34 {
+  padding: 0.677em 0.5em 0 0;
+}
+
+mjx-c.mjx-cD7 {
+  padding: 0.491em 0.778em 0 0;
+}
+
+mjx-c.mjx-c1D463 {
+  padding: 0.443em 0.485em 0.011em 0;
+}
+
+mjx-c.mjx-c32 {
+  padding: 0.666em 0.5em 0 0;
+}
+</style><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#244c42"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../reader.css"><script src="../reader.js" defer></script></head><body class="theme-light"><header class="reader-ui"><div class="reader-top"><a class="back-link" href="../">← 자료실</a><div class="reader-title"><strong>순환기</strong><span>Key message · 42개 주제</span></div><button id="print-document" type="button">인쇄</button></div><nav class="subject-nav" aria-label="과목 이동"><a href="gastrointestinal.html">위장관</a><a href="hepatobiliary.html">간담췌</a><a href="renal.html">신장</a><a href="endocrine.html">내분비</a><a href="cardiology.html" aria-current="page">순환기</a><a href="obstetrics.html">산과</a><a href="gynecology.html">부인과</a></nav><div class="reader-controls"><label class="topic-control"><span>주제</span><select id="topic-select" aria-label="주제로 이동"><option value="">주제로 이동</option><option value="topic-n01">@IVC→RV→폐→LV</option><option value="topic-n02">갈비연골염</option><option value="topic-n03">기립 vs 미주</option><option value="topic-n04">본태성 고혈압</option><option value="topic-n05">선천 심질환_성인</option><option value="topic-n06">심장종양</option><option value="topic-n07">심전도 artifact</option><option value="topic-n08">@2'고혈압 모아보기</option><option value="topic-n09">고혈압 약제 선택</option><option value="topic-n10">백의고혈압</option><option value="topic-n11">대협╱승협╱대역╱승역</option><option value="topic-n12">@심전도_이론</option><option value="topic-n13">심방세동</option><option value="topic-n14">심실세동╱심정지</option><option value="topic-n15">심실빈맥</option><option value="topic-n16">WPW╱AVRT╱AVNRT╱PSVT</option><option value="topic-n17">동성빈맥</option><option value="topic-n18">심방조동</option><option value="topic-n19">동기능부전증후군</option><option value="topic-n20">방실차단</option><option value="topic-n21">디곡신 부정맥</option><option value="topic-n22">베타차단제 부정맥</option><option value="topic-n23">칼륨 부정맥</option><option value="topic-n24">브루가다 vs RBBB</option><option value="topic-n25">조기박동</option><option value="topic-n26">부정맥 내원시 검사</option><option value="topic-n27">확 vs 비</option><option value="topic-n28">감염성 심내막염</option><option value="topic-n29">급성 심장막염~심근염</option><option value="topic-n30">협착 심장막염 vs 눌림증</option><option value="topic-n31">심부전</option><option value="topic-n32">@혈전 치료 모아보기</option><option value="topic-n33">대동맥박리</option><option value="topic-n34">복부대동맥류</option><option value="topic-n35">도관 관련 혈관질환</option><option value="topic-n36">동맥 막힘</option><option value="topic-n37">림프부종╱DVT╱PE</option><option value="topic-n38">목동맥협착</option><option value="topic-n39">얕은정맥╱폐쇄혈전╱정맥부전</option><option value="topic-n40">심근경색</option><option value="topic-n41">심근경색_합병증</option><option value="topic-n42">협심증; 안정 vs 변이</option></select></label><div class="view-controls"><select id="page-select" aria-label="쪽 이동"><option value="page-1">1 / 4쪽</option><option value="page-2">2 / 4쪽</option><option value="page-3">3 / 4쪽</option><option value="page-4">4 / 4쪽</option></select><button id="zoom-out" type="button" aria-label="축소">−</button><label><span class="reader-sr-only">배율</span><select id="zoom-select"><option value="fit">화면 맞춤</option><option value="0.5">50%</option><option value="0.75">75%</option><option value="1">100%</option><option value="1.25">125%</option><option value="1.5">150%</option><option value="2">200%</option></select></label><button id="zoom-in" type="button" aria-label="확대">+</button></div></div></header><div class="reader-stage"><main id="pages"><div class="sheet" id="page-1"><div class="page" aria-label="순환기 1쪽" role="region"><header class="page-header"><b>순환기 · Key message</b><span>3단 · 함초롬바탕</span></header><div class="columns"><div class="column markdown-rendered" style="display: flex; flex-direction: column; gap: 44.3736px;"><section class="section" data-note="n01" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n01"><h2 class="section-title">@IVC→RV→폐→LV</h2><ol start="1"><li>RV→폐 만 생각하기 쉬운데, 사실 RV의 수축력이 →폐→LV 까지 담당한다. RV가 약해지면 LV에 장전되는 피(Preload)가 적어진다. 그래서 RV경색에서 혈압을 올려주려면 수액을 투여한다.</li></ol><ol start="2"><li>또한, RV가 약해지면, 전부 빼주지를 못해, SVC/IVC에 압력이 전달돼서, 목정맥확장/오목부종이 생긴다.</li></ol><ol start="3"><li>반면, LV가 약해지면, 폐에 압력이 전달돼서, 폐부종이 생긴다.</li></ol></section><section class="section" data-note="n02" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n02"><h2 class="section-title">갈비연골염</h2><ol start="1"><li>심호흡 악화(+) 압통(+) 이면 갈비연골염이다.</li></ol></section><section class="section" data-note="n03" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n03"><h2 class="section-title">기립 vs 미주</h2><ol start="1"><li>둘다 TTT로 진단하고, 둘다 미도드린 처방한다.</li></ol></section><section class="section" data-note="n04" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n04"><h2 class="section-title">본태성 고혈압</h2><ol start="1"><li>유병률로는 대부분 본태성일테지만, 본태성의 진단은 다른 2차성을 전부 배제한 후에 내려야한다.</li></ol></section><section class="section" data-note="n05" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n05"><h2 class="section-title">선천 심질환_성인</h2><ol start="1"><li>소아때 증상이 경한 질환들이 성인이 돼서 우연히 발견되고는 한다.</li></ol><ol start="2"><li>PFO는 심방중격에 덮개가 덜닫히는 질환인데, 정맥혈전이 경동맥으로 날아갈수 있어서 뇌졸중의 원인이 된다. RA에 기포를 뿌려 LA에 보이는지 확인하는 agitated saline test로 검사한다.</li></ol><ol start="3"><li>지속성심잡음에는 PDA말고도 관상동정맥루/발살바동파열도 원인이 될 수 있다.</li></ol><ol start="4"><li>심장카테터 검사에서, 우심계를 흐르던 정맥혈에 갑자기 산소농도가 높아진다면, LR shunt가 있는 것이다.</li></ol><ol start="5"><li>대동맥축착은 이엽성 대동맥판을 잘 동반한다.</li></ol><ol start="6"><li>LV-RV 압력차이는 <span class="math math-inline" data-tex="4\times v^2" data-display="false"><mjx-container class="MathJax" jax="CHTML" overflow="overflow"><mjx-math data-latex="4\times v^2" breakable="true" class="TEX-N"><mjx-mn data-latex="4"><mjx-c class="mjx-c34">4</mjx-c></mjx-mn><mjx-break size="3"> </mjx-break><mjx-mo data-latex="\times"><mjx-c class="mjx-cD7">×</mjx-c></mjx-mo><mjx-msup space="3" data-latex="v^2"><mjx-mi data-latex="v"><mjx-c class="mjx-c1D463">𝑣</mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn size="s" data-latex="2"><mjx-c class="mjx-c32">2</mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math></mjx-container></span> 으로 구하며, LV수축기압은 SBP와 같다.</li></ol></section><section class="section" data-note="n06" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n06"><h2 class="section-title">심장종양</h2><ol start="1"><li>가장 흔한 심장종양은 Myxoma이며, 절제술로 치료한다.</li></ol><ol start="2"><li>결절경화증과 동반되는 심장종양은 횡문근종(Rhabdomyoma)이다.</li></ol></section><section class="section" data-note="n07" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n07"><h2 class="section-title">심전도 artifact</h2><ol start="1"><li>Lead I 상하반전(+)이면 좌우유도 거꾸로 꽂은거다.</li></ol><ol start="2"><li>뇌심부자극술 환자에서는 ECG 이상하게 나온다.</li></ol></section></div><div class="column markdown-rendered" style="display: flex; flex-direction: column; gap: 69.4086px;"><section class="section" data-note="n08" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n08"><h2 class="section-title">@2'고혈압 모아보기</h2><ol start="1"><li>2차성 고혈압의 원인은 대부분 신장이거나, 부신호르몬(알도/Epi/코티) 때문이다.</li></ol></section><section class="section" data-note="n09" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n09"><h2 class="section-title">고혈압 약제 선택</h2><ol start="1"><li>1제요법: 혈압 140~160(+) 심뇌혈관(-) → ABCD중에 선호되는거 하나 고르면 됨.<ul>
+<li>ACEi/ARB: 단백뇨 선호 vs 임신계획 금기</li>
+<li>BB: 빈맥/협심증 선호 vs 천식/COPD 금기</li>
+<li>CCB: 고칼륨 선호 vs 하지부종 부작용</li>
+<li>D<ul>
+<li>TZD: 고칼륨 선호 vs 통풍 금기</li>
+<li>(푸로세미드: 고혈압약제 라기 보다는 부종 빼려고 같이 주는 느낌)</li>
+</ul>
+</li>
+</ul>
+</li></ol><ol start="2"><li>2제요법: 혈압 160~180(+) or 140~160(+) 심뇌혈관(+) → AC 국룰</li></ol><ol start="3"><li>3제요법: 2제요법 불응시 → ACT 국룰</li></ol><ol start="4"><li>4제요법: 3제요법 불응시 → ACTS 국룰</li></ol><ol start="5"><li>고혈압응급: 두통/의식저하/유두부종(+) → 라베탈롤/에스몰롤, 니트로프루시드/글리세린, 니카디핀</li></ol></section><section class="section" data-note="n10" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n10"><h2 class="section-title">백의고혈압</h2><ol start="1"><li>고혈압 확진은 진료실과 가정이 모두 (+)이거나, 24시간혈압이 (+)여야 한다.<ul>
+<li>진료실(+) 가정(-) 24시간(-) → 백의(가짜)고혈압</li>
+<li>진료실(-) 가정(+) 24시간(+) → 가면고혈압</li>
+</ul>
+</li></ol></section><section class="section" data-note="n11" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n11"><h2 class="section-title">대협╱승협╱대역╱승역</h2><ol start="1"><li>대협은 우수/목방사 가 특징이며, 고혈압 동반시 혈압약 먹는다. 협착증이므로 면적이 1cm<sup>2</sup> 보다 좁으면 치환술하고, 넓으면 경과관찰하는데, 치환술은 경피적/수술적 모두 가능하다.</li></ol><ol start="2"><li>승협은 심첨이 가 특징이며, 심방세동 동반시 와파린 먹는다. 협착증이므로 면적이 1.5cm<sup>2</sup> 보다 좁으면 치료하고, 넓으면 경과관찰하는데, 대협과 달리 경피적 풍선성형술이라고, 판막의 연결부(교련)을 풍선으로 찢는다(절개술). 단, 좌심방혈전이 있을 경우, 무조건 수술적 치환술 해야한다.</li></ol><ol start="3"><li>대역은 좌3이, 승역은 심첨수 가 특징으로, 둘다 수술하기 위해선 일단 중증이어야 하고, 그 다음에 유증상이든지/좌심실박출률이 작든지/좌심실이완기직경이 크든지 하나라도 만족해야 수술한다. 대역은 수술적치환술만 가능하며, 승역은 유일하게 수술적치환술보다 수술적성형술이 우세하다고 밝혀진 질환이다.</li></ol><ol start="4"><li>흔하진 않은데, 좌4수 가 삼역이라는 것도 가끔 출제된다. 호흡에 따라 심잡음 크기가 변하는 특징이 있다.</li></ol></section></div><div class="column markdown-rendered" style="display: flex; flex-direction: column; gap: 50.268px;"><section class="section" data-note="n12" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n12"><h2 class="section-title">@심전도_이론</h2><ol start="1"><li>정상 Rate = 60~100회/분이다.</li></ol><ol start="2"><li>EKG에서 Rate 구하려면 300/RR간격 하면 된다.</li></ol></section><section class="section" data-note="n13" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n13"><h2 class="section-title">심방세동</h2><ol start="1"><li>제일 흔한 부정맥으로, 두근/숨참/어지럼(+)이지만, irr irr(+)이 가장 큰 특징이다.</li></ol><ol start="2"><li>3가지 case를 외워야 한다.<ul>
+<li>그냥: <a class="internal-link" data-target="사진_심방세동">irr irr(+)</a></li>
+<li>조기흥분: <a class="internal-link" data-target="사진_심방세동 w╱ 조기흥분">irr irr(+) Δ파(+)</a></li>
+<li>동기능부전: <a class="internal-link" data-target="사진_심방세동 w╱ 동기능부전">irr irr하다가 파형소실(+)</a></li>
+</ul>
+</li></ol><ol start="3"><li>혈역학적 불안정(+)라면 어떤 case이건, 즉시 전기적율동전환 한다.</li></ol><ol start="4"><li>혈역학적 불안정(-)라면, 크게 4가지의 치료(Rate/Rhythm/혈전/재발방지)가 필요하다.<ul>
+<li>Rate: 베베딜</li>
+<li>Rhythm: 전기적 or "플래에서 프로패도 2부 프로 까인다"</li>
+<li>혈전예방: 와파린 or 가트란/사반</li>
+<li>재발방지: 전극도자절제술(RFCA)</li>
+</ul>
+</li></ol><ol start="5"><li>위를 외우고 예외 3가지를 외우면 된다.<ul>
+<li>Δ파(+) 라면 베베딜 절대 금기이다.</li>
+<li>파형소실(+) 라면 심박동기도 같이 고려한다.</li>
+<li>"심뇌혈관 질환없는 64세"는 혈전예방 안 한다.</li>
+</ul>
+</li></ol></section><section class="section" data-note="n14" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n14"><h2 class="section-title">심실세동╱심정지</h2><ol start="1"><li>OSCE에서는 심실세동만 출제됐지만, 사실은 4가지 경우의 수가 있다.<ul>
+<li>"리듬 분석하겠습니다. 모두 떨어지세요."<ul>
+<li>VF: "제세동하겠습니다. 모두 떨어지세요."</li>
+<li>Pulseless VT: "pulseless인지 확인 → 제세동하겠습니다."<ul>
+<li>(만약 pulse(+)라면 심실빈맥 알고리즘으로 넘어감)</li>
+</ul>
+</li>
+<li>Asystole: "Epi q 3min"</li>
+<li>Pulseless Electic Activity: "pulseless인지 확인 → Epi q 3min"<ul>
+<li>(만약 pulse(+)라면 ROSC)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li></ol><ol start="2"><li>치료적저체온은 ROSC(+) 의식(-)에서만 한다.</li></ol><ol start="3"><li>심실세동 재발방지는 삽입형 제세동기 이다.</li></ol></section><section class="section" data-note="n15" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n15"><h2 class="section-title">심실빈맥</h2><ol start="1"><li>심전도가 조기흥분심방세동을 mimic해서, 간격이 규칙적인지 봐야한다.</li></ol><ol start="2"><li>그냥 심실빈맥은 리도/아미로 치료하나, 혈역학적불안정(+)이면 율동전환한다.</li></ol><ol start="3"><li>다형성 심실빈맥은 리도/아미 쓰면 안되고, 마그네슘을 줘야한다. 혈역학적불안정(+)이면 율동전환한다.</li></ol><ol start="4"><li>그냥 심실빈맥/다형성 심실빈맥 모두 재발방지를 위해 삽입형 제세동기를 넣는다.</li></ol><ol start="5"><li>심한 운동시에만 발생하는 운동유발.카테콜아민.심실빈맥 이라는 것도 있는데, 이거는 베베딜만 주면 된다.</li></ol></section></div></div><footer class="footer"><span>5. 순환기</span><span class="page-number">1 / 4</span></footer></div></div><div class="sheet" id="page-2"><div class="page" aria-label="순환기 2쪽" role="region"><header class="page-header"><b>순환기 · Key message</b><span>3단 · 함초롬바탕</span></header><div class="columns"><div class="column markdown-rendered" style="display: flex; flex-direction: column; gap: 119.949px;"><section class="section" data-note="n16" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n16"><h2 class="section-title">WPW╱AVRT╱AVNRT╱PSVT</h2><ol start="1"><li>갑자기 시작하고 끝나는 두근거림에 Λ<sub>˄</sub>Λ 심전도가 있으면 PSVT이고, 경동맥마사지/아데노신으로 치료하면 되지만, 아데노신 불응성이면 전극도자절제술로 부경로를 지져야 한다.</li></ol><ol start="2"><li>아데노신 주고 정상맥으로 돌아오는 모습이 파형소실을 mimic할 수도 있다.<ul>
+<li><span class="internal-embed image-embed"><img src="../assets/images/676d19ba1a7db931e555.png" alt="Pasted image 20261025204710.png" width="260"></span></li>
+</ul>
+</li></ol><ol start="3"><li>PSVT의 세부분류에는 방실회귀빈맥(AVRT)와 방실결절회귀빈맥(AVNRT)가 있는데, 방실회귀빈맥(AVRT)는 경우에 따라 Δ파를 보이는 반면, 방실결절회귀빈맥(AVNRT)는 절대 Δ파를 보이지 않는다.</li></ol><ol start="4"><li>Δ파를 보이는 모든 상태를 조기흥분증후군이라고 부를 수 있어서, 답으로 조기흥분증후군을 골라야 할 때도 있다.</li></ol><ol start="5"><li>QRS이후에 살짝 밑으로가는걸 retrograde P라고 하는데, 대부분 PSVT에서 볼 수 있다.</li></ol></section><section class="section" data-note="n17" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n17"><h2 class="section-title">동성빈맥</h2><ol start="1"><li>동성빈맥은 스트레스/커피/기립/갑상선 등이 원인이며, 24시간 심전도 검사후 경과관찰하면 되지만, 갑상선항진증이 원인이라면 베타차단제를 줘야한다.</li></ol><ol start="2"><li>모양이 쉬울 것 같지만, T와 P가 가까이 붙거나 톱니처럼 보일 수 있음을 유의해야한다.</li></ol><ol start="3"><li>톱니처럼 보여서 심방조동과 헷갈릴 경우, 심방조동은 T에서 내려간 만큼 내려가는 F가 있는지 보면 된다.</li></ol></section><section class="section" data-note="n18" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n18"><h2 class="section-title">심방조동</h2><ol start="1"><li>톱니모양이 특이적이지만, 동성빈맥/PSVT도 톱니처럼 보일 때가 있다. 따라서 S가 내려간만큼 내려가는 F가 있는지를 확실히 봐야한다.</li></ol><ol start="2"><li>제일 확실한건 아데노신 테스트에서 톱니만 남는건데, 문제에서 안줄 때가 많다.<ul>
+<li><span class="internal-embed image-embed"><img src="../assets/images/7394c40506595e0e8ed2.png" alt="Pasted image 20250704174211.png" width="200"></span></li>
+<li><span class="internal-embed image-embed"><img src="../assets/images/93a17f033e57c1eedd59.png" alt="Pasted image 20250704174224.png" width="200"></span></li>
+<li><span class="internal-embed image-embed"><img src="../assets/images/f5968522340b2e187314.png" alt="Pasted image 20250704174235.png" width="200"></span></li>
+</ul>
+</li></ol><ol start="3"><li>치료는 심방세동과 동일하다.</li></ol></section></div><div class="column markdown-rendered" style="display: flex; flex-direction: column; gap: 148.211px;"><section class="section" data-note="n19" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n19"><h2 class="section-title">동기능부전증후군</h2><ol start="1"><li>동기능부전증후군(빈맥-서맥증후군)은 반복적 어지럼~실신을 보이며, 파형소실이 특징이다. </li></ol><ol start="2"><li>영구형 심박동기로 치료한다.</li></ol></section><section class="section" data-note="n20" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n20"><h2 class="section-title">방실차단</h2><ol start="1"><li>2도는 OOOXOOOXOOOX..식으로 이빨빠졌고, 빠진 부위에 P파가 남아있다.<ul>
+<li><span class="internal-embed image-embed"><img src="../assets/images/73aa524848a66ee68027.png" alt="Pasted image 20250711064907.png"></span></li>
+<li><span class="internal-embed image-embed"><img src="../assets/images/be4c8d159b8d93238e81.png" alt="Pasted image 20250711064930.png"></span></li>
+</ul>
+</li></ol><ol start="2"><li>3도는 RR/PP 간격 모두 일정하며, P없는 QRS 지배적 이다.<ul>
+<li><span class="internal-embed image-embed"><img src="../assets/images/774946e10df532a0fe23.png" alt="Pasted image 20250711063640.png"></span></li>
+<li><span class="internal-embed image-embed"><img src="../assets/images/262a7ffbce88a350743b.png" alt="Pasted image 20250711062603.png"></span></li>
+<li><span class="internal-embed image-embed"><img src="../assets/images/310fb3b084e89eb460d2.png" alt="Pasted image 20261025213423.png"></span></li>
+</ul>
+</li></ol><ol start="3"><li>문제는, OXOXOX.. 식으로 이빨빠진 2도는 3도를 mimic한다는 것이다. P→QRS가 지배적으로 있다면 2도이다.<ul>
+<li><span class="internal-embed image-embed"><img src="../assets/images/53817f153eddaa24a87a.png" alt="Pasted image 20250711065746.png"></span></li>
+</ul>
+</li></ol><ol start="4"><li>돌발방실차단은, 동기능부전증후군과 달리, 파형소실 후에도 P는 남아있다.<ul>
+<li><span class="internal-embed image-embed"><img src="../assets/images/5d6a198e4aade4a48402.png" alt="Pasted image 20250711070637.png"></span></li>
+</ul>
+</li></ol><ol start="5"><li>모든 방실차단은 무증상/기운없음/숨참/어지러움/실신 스펙트럼의 증상을 보이며, 치료는 항상 영구형 심박동기이다.</li></ol></section><section class="section" data-note="n21" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n21"><h2 class="section-title">디곡신 부정맥</h2><ol start="1"><li>디곡신 부정맥은 scooped ST를 보이며, 디곡신 농도 측정후, 디곡신 중단하면 된다.</li></ol></section><section class="section" data-note="n22" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n22"><h2 class="section-title">베타차단제 부정맥</h2><ol start="1"><li>베타차단제 먹는 사람이 P없는 QRS가 지배적인 서맥을 보이면, 베타차단제 중단해야 하며, 심하면 임시형 심박동기도 고려한다.</li></ol></section></div><div class="column markdown-rendered" style="display: flex; flex-direction: column; gap: 76.4868px;"><section class="section" data-note="n23" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n23"><h2 class="section-title">칼륨 부정맥</h2><ol start="1"><li>칼륨이 높을수록 T가 올라가고, 낮을수록 T가 내려가지만, 칼륨수치를 무조건 주기 때문에, 심전도 볼 때 칼륨수치도 같이 보고 판단하면 된다. 칼륨낮을땐 칼륨보충, 높을땐 글루콘산칼슘 주면 된다.</li></ol><ol start="2"><li>혈전제거술 이후에 칼륨부정맥이 생기는걸 Reperfusion synd.라고 한다.</li></ol></section><section class="section" data-note="n24" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n24"><h2 class="section-title">브루가다 vs RBBB</h2><ol start="1"><li>브루가다는 심실세동이 잘 생겨서 심정지까지 올 수 있어서 미리 제세동기를 넣어놔야 한다. SCN5A 돌연변이가 동반된다. <ul>
+<li><span class="internal-embed image-embed"><img src="../assets/images/ab1b9b395b8046c781d0.png" alt="Pasted image 20261025221118.png" width="410"></span></li>
+</ul>
+</li></ol><ol start="2"><li>RBBB도 브루가다 처럼 V1~V2에 특이한 모양을 가지지만, 생긴게 다르고, 경과관찰해도 된다.<ul>
+<li><span class="internal-embed image-embed"><img src="../assets/images/5b717e85d7b9e23c3151.png" alt="Pasted image 20261025223717.png" width="414"></span></li>
+</ul>
+</li></ol></section><section class="section" data-note="n25" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n25"><h2 class="section-title">조기박동</h2><ol start="1"><li>조기박동은 조기수축이라고도 불리는데, 조기흥분증후군과는 전혀 상관없다.</li></ol><ol start="2"><li>심방조기박동은 Λ__Λ__Λ__Λ__Λ 으로 보여야할게, 반박자씩 빨라져 Λ_Λ___Λ_Λ___Λ 으로 보이는 건데, 이게 방실차단의 이빨빠짐(OOXOOX..) 를 mimic한다. 이빨빠진 자리에 P가 없다는게 차이점이다.</li></ol><ol start="3"><li>심실조기박동은 대놓고 중간에 이상한 QRS가 나타난다.</li></ol><ol start="4"><li>심방/심실 조기박동은 모두 경과관찰~베타차단제로 치료한다.</li></ol></section><section class="section" data-note="n26" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n26"><h2 class="section-title">부정맥 내원시 검사</h2><ol start="1"><li>두근거려서 내원했는데 심전도가 정상이라면, 부정맥을 찾기 위해 24시간홀터/활동사건기록기를 쓴다. 하루에 n회정도 두근거리면 당연히 24시간으로 찾고, n주에 n회 두근거리면 활동사건기록기로 찾는다.</li></ol><ol start="2"><li>두근거려서 내원했는데 심전도가 이미 이상하다면, 부정맥을 더 찾기 위한 노력 자체가 필요없다. 그 심전도에 대한 치료로 바로 진행하면 된다.</li></ol></section></div></div><footer class="footer"><span>5. 순환기</span><span class="page-number">2 / 4</span></footer></div></div><div class="sheet" id="page-3"><div class="page" aria-label="순환기 3쪽" role="region"><header class="page-header"><b>순환기 · Key message</b><span>3단 · 함초롬바탕</span></header><div class="columns"><div class="column markdown-rendered" style="display: flex; flex-direction: column; gap: 123.534px;"><section class="section" data-note="n27" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n27"><h2 class="section-title">확 vs 비</h2><ol start="1"><li>확장 심근병증은 심부전과 똑같은 병이라고 생각하면 되며, 스트레스/알콜 때문에 생길 수도 있다.</li></ol><ol start="2"><li>비대 심근병증은 좌3수/발커쭈약/매우높은V4~V6 가 특징이며, 심초음파로 중격이 두꺼워진걸 확인 한다. 급사위험성이 높아서 베타차단제로 낮춰주고, 삽입형 제세동기도 넣는다.</li></ol></section><section class="section" data-note="n28" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n28"><h2 class="section-title">감염성 심내막염</h2><ol start="1"><li>감염성 심내막염은 세균감염이 판막을 손상시키는 질환으로, 최근감기/4대염증수치/심잡음/자반 이 특징이며, 혈액배양 → 심초음파 → 식도경유 심초음파 순으로 검사해서 vegetation을 찾는다.</li></ol><ol start="2"><li>당연히 항생제 주고, 카테터로는 판막치환이 어려워서, 수술적 판막치환 해야 한다.</li></ol><ol start="3"><li>치과/구강/경부 쪽 수술 할때, 감염성 심내막염 예방을 위해 예방적 항생제를 준다.</li></ol></section><section class="section" data-note="n29" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n29"><h2 class="section-title">급성 심장막염~심근염</h2><ol start="1"><li>심장막(심낭)염과 심근염 모두 concave STE(+) 최근감기(+) 이지만, 심근염은 심근의 염증이기 때문에, 트로포닌이 오르며, 혈역학적 불안정해질 가능성이 높다. 심근경색이 낚시선지로 잘 나오는데, 최근감기(+)로 구분하면 쉽다.</li></ol><ol start="2"><li>심장막(심낭)염도 눌림증처럼 심낭액이 가득 찰 수 있는데, 혈역학적 불안정 소견이 있어야 그때부터 눌림증으로 진단명이 변한다고 생각하면 된다.</li></ol><ol start="3"><li>심장막(심낭)염은 심초음파 찍고, 콜히친/NSAID로 치료한다.</li></ol><ol start="4"><li>심근염은 심초음파로 찍는데, 혈역학적불안정해지면 승압제(노르핀), 강심제(도파민, 도부타민)으로 혈압을 올려야 한다. 이에 불응하면 체외막산소공급 한다.</li></ol></section><section class="section" data-note="n30" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n30"><h2 class="section-title">협착 심장막염 vs 눌림증</h2><ol start="1"><li>협착심장막염은 심장막 석회화된 사진만 볼 줄 알면 된다.</li></ol><ol start="2"><li>눌림증은 혈역학적불안정/심음감소/심낭비대 를 보이고, 심초음파로 심낭액 확인 후 심장막천자하면 순식간에 혈압이 좋아진다.</li></ol></section></div><div class="column markdown-rendered" style="display: flex; flex-direction: column; gap: 42.179px;"><section class="section" data-note="n31" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n31"><h2 class="section-title">심부전</h2><ol start="1"><li>심부전은 3가지 분류로 나눌 수 있다.<ul>
+<li>박출률저하는 LVEF≤40% / 박출률보존은 LVEF≥50%</li>
+<li>좌심부전은 진행될수록 눕잘악화/폐부종/거품소리가 생기지만(초기에는 없음), 단독 우심부전은 이런게 아예 없다. 대신 기저폐질환(m/c COPD)으로 인한 쌕쌕거림을 줄 때가 있음.</li>
+<li>급성(비보상성)심부전은 폐부종/거품소리가 심하다.</li>
+</ul>
+</li></ol><ol start="2"><li>심부전은 CXR상 LVH/폐부종, 혈액상 뇌나트륨이뇨펩티드, 심초음파상 박출률저하를 보인다.</li></ol><ol start="3"><li>당장 숨참/폐부종/거품소리 가 심한 심부전은 산소/푸로세미드 주는게 우선이다.</li></ol><ol start="4"><li>심부전의 1차치료 4가지는 ABSS인데, 베타차단제는 MBC만 되며, 스피로노락톤 대신 에플레레논을 쓸 수도 있으며, SGLT2i는 당뇨 유무와 상관없이 사용한다는 점을 까먹으면 안된다.</li></ol><ol start="5"><li>심부전이 ABSS에 불응하면 2차치료 4가지로 넘어간다. LVEF≤45%만 되어도 베리시구앗(베리구웃)을 쓰면되며, LVEF≤35%에서는 삽입형제세동기/심장재동기화/이바브라딘을 고려하는데, 삽입형제세동기는 안정시숨참이 없어야 하며, 심장재동기화는 QRS가 3작은칸 이상이어야 하며(QReSynchro), 이바브라딘은 심박수 70회 이상이어야 한다(35의 2배브라딘)</li></ol><ol start="6"><li>심방세동의 치료는 심부전에선 달라진다. 베베딜에서 베딜은 금기이며, 와파린 대신 NOAC이 우세하며, 디곡신을 추가한다.</li></ol><ol start="7"><li>심부전의 원인은 매우 다양하지만, m/c는 심근경색이다. 애초에 심부전에서 심초음파를 찍을 때, 반드시 국소운동저하를 관찰하라고 되어있다. 만약 관찰되었다면 컴퓨터단층 관상동맥조영술을 찍으며, 이후는 심근경색과 똑같이 치료하면 된다.</li></ol><ol start="8"><li>심부전의 다양한 원인 중, 갑상선도 있다. 저하증/항진증 모두 심부전을 만드는데, 항진증 심부전은 박출률과 심박수가 모두 높은 심부전을 만든다. 아무튼 저하증/항진증 소견(+) 심부전소견(+) 이라면 다음 검사로 갑상선 검사를 고를줄 알아야 한다.</li></ol></section><section class="section" data-note="n32" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n32"><h2 class="section-title">@혈전 치료 모아보기</h2><ol start="1"><li>항혈소판제는 좁아진 혈관에 혈전 생기지 말라고 꾸준히 먹는다(경구).</li></ol><ol start="2"><li>와파린은 심장 내에 혈전 생기지 말라고 꾸준히 먹는다(경구)</li></ol><ol start="3"><li>헤파린은 IV제제로 2가지 쓰임새가 있다.<ul>
+<li>급성혈전예방: 관상동맥중재술(PCI)처럼 몸에 철사가 들어갈 때 혈전 생기지 말라고 bolus로 주기</li>
+<li>정맥혈전 용해 간접도움: 이미 생긴 정맥혈전을 체내 혈전용해제가 녹이는걸 돕도록 꾸준히 주사하기</li>
+</ul>
+</li></ol><ol start="4"><li>가트란/사반은 와파린/헤파린 모두를 대체할 수 있는데, 2가지 예외가 있다.<ul>
+<li>승협에서는 여전히 와파린 처럼 강한 약을 써야한다.</li>
+<li>경구여서 헤파린의 IV 급성혈전예방은 못한다.</li>
+</ul>
+</li></ol><ol start="5"><li>동맥을 막았거나, 혈역학적 불안정 올 정도로 정맥을 막은 경우, 당장 뚫는게 중요하기 때문에, 혈전용해제/혈전제거술 해야한다.</li></ol></section></div><div class="column markdown-rendered" style="display: flex; flex-direction: column; gap: 131.168px;"><section class="section" data-note="n33" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n33"><h2 class="section-title">대동맥박리</h2><ol start="1"><li>생각보다 몇분내에 죽는 질환이 아니라, 애초에 n시간 전부터 가슴이 아파서 온다. CXR상 Aortic arch widening만 보고도 CT검사를 고를 줄 알아야 하며, CT에서 False lumen이 나왔다면, 상행대동맥을 침범했다면 대동맥대치술, Lt.subclavian 이후라면 경과관찰/혈압조절 해도 된다.<ul>
+<li><span class="internal-embed image-embed"><img src="../assets/images/87d9a77120815700a656.png" alt="Pasted image 20250723205229.png" width="457"></span></li>
+</ul>
+</li></ol><ol start="2"><li>대동맥박리와 증상이 매우 비슷하지만, CT상 False lumen이 아니라 혈종이 보일 때가 있다. 이를 대동맥벽내혈종(급성대동맥증후군)이라고 한다.<ul>
+<li><span class="internal-embed image-embed"><img src="../assets/images/f9d1dcd5bec4743cd4d1.png" alt="Pasted image 20250723210939.png" width="275"></span></li>
+<li><span class="internal-embed image-embed"><img src="../assets/images/174285c517c3df7929c4.png" alt="Pasted image 20251229182320.png" width="270"></span></li>
+</ul>
+</li></ol></section><section class="section" data-note="n34" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n34"><h2 class="section-title">복부대동맥류</h2><ol start="1"><li>지름 5.5cm 이하면 CT/초음파 추적관찰하고, 이상이면 개복해서 메우거나(인조혈관 치환술) 경피적으로 메운다(경피적 스텐트그라프트)</li></ol></section><section class="section" data-note="n35" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n35"><h2 class="section-title">도관 관련 혈관질환</h2><ol start="1"><li>혈액투석 동정맥루 이후에 혈류빼앗김증후군이 생겨 손이 괴사할 수 있다.</li></ol><ol start="2"><li>중심정맥관 삽입 이후에 팔/목/얼굴 부종이 생겼다면, 중심정맥 폐쇄를 의심한다. 조영술 해보면 subclavian이 심장으로 들어가려다가 끊겨있다.</li></ol></section></div></div><footer class="footer"><span>5. 순환기</span><span class="page-number">3 / 4</span></footer></div></div><div class="sheet" id="page-4"><div class="page" aria-label="순환기 4쪽" role="region"><header class="page-header"><b>순환기 · Key message</b><span>3단 · 함초롬바탕</span></header><div class="columns"><div class="column markdown-rendered" style="display: flex; flex-direction: column; gap: 243.71px;"><section class="section" data-note="n36" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n36"><h2 class="section-title">동맥 막힘</h2><ol start="1"><li>발목상완지수는 그쪽 발목 수축기혈압을 상완꺼중 높은거로 나눈 지수이다.</li></ol><ol start="2"><li>만성동맥막힘(동맥경화)는 파행/저림/약한맥을 보이며, 발목위팔지수로 혈압이 낮음을 확인하고, 도플러/혈관조영술로 얼마나 좁아졌는지 확인한다. 동맥경화이므로 항혈소판제로 예방하고, 혈관성형술로 넓혀본다. 못넓히는 상황에서는 우회술도 할 수 있다.</li></ol><ol start="3"><li>급성동맥막힘(혈전색전)은 마비/창백/무맥을 보이며, 어차피 혈압 측정 불가해서, 발목위팔지수는 생략하고, 바로 도플러/혈관조영술로 어디가 막혔는지 확인한다. 혈전용해제로 뚫으면 되는데, 최근 뇌출혈력 있으면 금기라서 혈전제거술로 뚫어야 한다.</li></ol><ol start="4"><li>막힌 혈관을 물어보거나, 막혔을 때 어떻게 우회술할지 물어보기도 한다. 최소한 바깥엉덩 →넙다리 는 외워야 한다.<ul>
+<li><span class="internal-embed image-embed"><img src="../assets/images/bef063f5e694bb9ac180.png" alt="Pasted image 20261026160123.png" width="186"></span></li>
+</ul>
+</li></ol></section><section class="section" data-note="n37" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n37"><h2 class="section-title">림프부종╱DVT╱PE</h2><ol start="1"><li>DVT는 맥박정상/따뜻(+)이라는 배제 힌트를 주며, 도플러를 찍어서 동맥과 달리 정맥에 컬러도플러가 안생기는걸 확인한다, 손으로 눌러보았을 때 collapse되어야할 정맥이 형태를 유지하는 소견도 알아야 한다.</li></ol><ol start="2"><li>PE는 심음/호흡음 정상(+)이라는 배제 힌트를 주며, 검사 선지우위가 조금 짜증난다. 선지우위는 CT → D-이량체 → 환기관류스캔 → 심초음파 이다. (CD환심)</li></ol><ol start="3"><li>DVT/PE의 치료는 혈역학적불안정 유무에 따라 헤파린/리바록사반/아픽사반과 혈전용해제로 나눠진다. 이때, 최근 뇌출혈이 있으면 둘 다 금기여서, 각각 IVC filter와 혈전제거술로 대체한다.</li></ol><ol start="4"><li>림프부종은 술후 다리부종이라는 점에서, DVT를 mimic할 수 있다. 유방암/자궁암 등 수술에서 림프절을 떼서 생기는건데, 림프신티그라피(섬광조영술)로 검사하지만, 압박스타킹/소매가 유일한 치료이다.</li></ol></section></div><div class="column markdown-rendered" style="display: flex; flex-direction: column; gap: 189.535px;"><section class="section" data-note="n38" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n38"><h2 class="section-title">목동맥협착</h2><ol start="1"><li>목동맥협착이 심하면 스텐트 넣는다. 동맥경화의 일반적 치료와 동일함.</li></ol></section><section class="section" data-note="n39" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n39"><h2 class="section-title">얕은정맥╱폐쇄혈전╱정맥부전</h2><ol start="1"><li>얕은정맥이 빨개졌다면 NSAID 먹으면 된다.</li></ol><ol start="2"><li>heavy smoker에서 모세혈관만 막히는 질환도 있는데, 폐쇄혈전혈관염(버거병)이라고 부르며, DM foot을 mimic하며, 치료는 금연밖에 없다.</li></ol><ol start="3"><li>다리가 붓고 거뭇거뭇하게 썩은 것 같다면, 감염만 의심할게 아니라, 만성정맥부전을 떠올리고, 초음파를 찍으면 된다.</li></ol></section><section class="section" data-note="n40" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n40"><h2 class="section-title">심근경색</h2><ol start="1"><li>불안정협심증은 CK-MB/트로포닌이 안오른다.</li></ol><ol start="2"><li>운동 안해도/조금만 움직여도/10분이상 가슴이 아프면 관상동맥조영술/트로포닌 검사를 하고, CK-MB/트로포닌 상승 여부와 ST상승 여부에 따라서 불안정협심증/NSTEMI/STEMI로 진단한다. 싸잡아서 급성관상동맥증후군이라고 해도 된다.</li></ol><ol start="3"><li>막힌 관상동맥에 혈전용해제와 스텐트를 넣는 중재술을 하면 되는데, 철사 들어가는 것 자체가 급성으로 새로운 혈전을 만들 수 있어서, 시술 전에 AnH를 준다. </li></ol><ol start="4"><li>심전도를 보고 병변을 Localization할 수 있어야 한다.<ul>
+<li><span class="internal-embed image-embed"><img src="../assets/images/90a2a468697ad198a299.png" alt="Pasted image 20261027152701.png"></span></li>
+</ul>
+</li></ol><ol start="5"><li>혈역학적불안정한 심근경색의 치료는 조금 달라진다. 중재술 하는 것 까지는 같지만, 니트로글리세린을 절대 주면 안되며, 혈압을 올리기 위한 치료가 RV fail/LV fail에 따라 달라진다.<ul>
+<li>"오른쪽"에 STE가 있고, 폐부종이 없으면 수액으로 preload를 채운다.</li>
+<li>"왼쪽"에 STE가 있고, 폐부종이 있으면 승압제(노르핀)와 강심제(도파민/도부타민)으로 LV 수축력을 늘려야 한다.</li>
+</ul>
+</li></ol></section></div><div class="column markdown-rendered" style="display: flex; flex-direction: column; gap: 236.101px;"><section class="section" data-note="n41" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n41"><h2 class="section-title">심근경색_합병증</h2><ol start="1"><li>심근경색에서 괴사가 심해지면 당연히 파열될 수 있다. 유두근/중격/자유벽 모두 파열될 수 있고, 당연히 혈역학적 불안정이 생긴다. <ul>
+<li><span class="internal-embed image-embed"><img src="../assets/images/eac6e2f30d6e67913f61.png" alt="Pasted image 20261027153952.png"></span></li>
+</ul>
+</li></ol><ol start="2"><li>유두근/중격은 파열되면 범수축기 심잡음을 보이는게 특징이다. 심초음파로 덜렁거리는 파열부위를 확인한 후, 응급수술 들어가야 한다.</li></ol><ol start="3"><li>반면, 자유벽이 파열되면 당연히 hemopericardium이 생기고, 심하면 눌림증까지 생긴다.</li></ol><ol start="4"><li>관상동맥스텐트에 내피세포가 자라나 덮일 때까지는, 혈전이 매우매우 잘 생긴다. 아스피린 조금만 게을리 먹어도 바로 스텐트혈전증으로 관상동맥 막힌다. 마찬가지로, 다른 수술해야할게 있다고 해서, 아스피린 끊고 일주일 뒤 수술하는건 무조건 틀린 선지이다. 스텐트 삽입 1년까지는 어떤 정규수술도 금기이다.</li></ol></section><section class="section" data-note="n42" style="margin: 0px; display: flow-root; flex: 0 0 auto;" id="topic-n42"><h2 class="section-title">협심증; 안정 vs 변이</h2><ol start="1"><li>안정협심증은 현재는 멀쩡할 수 있다. 그래서 심전도/심초음파/관류스캔/관상동맥의 이상소견을 강제로 부하를 줘서 찾아내야 한다.</li></ol><ol start="2"><li>제일 좋은 것은 운동부하 인데, 이미 심전도가 이상하거나 관절이 안 좋으면 약제부하 심초음파/관류스캔을 하거나, 컴퓨터단층촬영 관상동맥조영술을 한다.</li></ol><ol start="3"><li>선지에 (부하 없이) 그냥 심초음파/관류스캔이라고 돼있으면 낚시일 확률이 높다. 그리고 관상동맥조영술도 틀린 선지이다. 심장까지 철사가 들어가는 관상동맥조영술은 안정협심증에 하기에는 너무 침습적이어서, CT조영술로 대체하는 거다.<ul>
+<li><span class="internal-embed image-embed"><img src="../assets/images/6a2d0066cdcb473c4948.png" alt="Pasted image 20261028143652.png" width="320"></span></li>
+</ul>
+</li></ol><ol start="4"><li>안정협심증의 치료는 ABnC 이다.</li></ol><ol start="5"><li>변이협심증은 그냥 관상동맥조영술로 연축된 혈관을 확인한다. 에르고노빈 주입시 좁아지고, 니트로글리세린 주입시 넓어진다. 치료는 nC이다.</li></ol></section></div></div><footer class="footer"><span>5. 순환기</span><span class="page-number">4 / 4</span></footer></div></div></main></div></body></html>
