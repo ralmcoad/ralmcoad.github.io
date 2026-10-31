@@ -31,14 +31,16 @@
   const pages=[...document.querySelectorAll('.page')];
   const toolbar=document.querySelector('.reader-ui');
   if(!pages.length || !toolbar) return;
-  const storageKey='key-reader-masks:v1:'+location.pathname;
+  const legacyKey='key-reader-masks:v1:'+location.pathname;
+  const storageKey='key-reader-mask-history:v2:'+location.pathname;
   const modeKey='key-reader-mask-mode:v1';
-  let items=[],undo=[],redo=[],selected=null,enabled=true,saveFailed=false;
+  let items=[],undo=[],redo=[],selected=null,enabled=true,saveFailed=false,shared=null,syncStatus='공유 내용 불러오는 중…';
   const validItem=item=>item && typeof item.id==='string' && Array.isArray(item.parts) && item.parts.length>0 && item.parts.every(p=>typeof p.note==='string' && typeof p.title==='string' && typeof p.quote==='string' && Number.isInteger(p.start) && p.start>=0);
   try {
-    const saved=JSON.parse(localStorage.getItem(storageKey)||'null');
-    if(saved && saved.version===1) {
-      items=Array.isArray(saved.items)?saved.items.filter(validItem):[];
+    const legacy=JSON.parse(localStorage.getItem(legacyKey)||'null');
+    const saved=JSON.parse(localStorage.getItem(storageKey)||'null')||legacy;
+    items=Array.isArray(legacy?.items)?legacy.items.filter(validItem):[];
+    if(saved) {
       const history=list=>Array.isArray(list)?list.filter(a=>a && ['add','delete'].includes(a.type) && validItem(a.item) && Number.isInteger(a.index) && a.index>=0).slice(-100):[];
       undo=history(saved.undo);redo=history(saved.redo);
     }
@@ -47,7 +49,7 @@
 
   const controls=document.createElement('div');
   controls.className='annotation-controls';
-  controls.innerHTML='<div class="annotation-actions"><button type="button" id="mask-mode" aria-pressed="true" title="켜면 글자를 드래그할 때 회색으로 가립니다. 끄면 일반 글자 선택을 할 수 있습니다.">가리기 켜짐</button><button type="button" id="mask-delete" disabled title="선택한 가리개 삭제 (Delete)">삭제</button><button type="button" id="mask-undo" disabled title="되돌리기 (Ctrl+Z)">↶ 되돌리기</button><button type="button" id="mask-redo" disabled title="다시 실행 (Ctrl+Shift+Z)">↷ 다시 실행</button></div><p class="annotation-help">드래그하여 가리기 · 클릭 후 Delete · Ctrl+Z 되돌리기</p><span class="annotation-status" role="status" aria-live="polite"></span>';
+  controls.innerHTML='<div class="annotation-actions"><button type="button" id="mask-mode" aria-pressed="true" title="켜면 글자를 드래그할 때 회색으로 가립니다. 끄면 일반 글자 선택을 할 수 있습니다.">가리기 켜짐</button><button type="button" id="mask-delete" disabled title="선택한 가리개 삭제 (Delete)">삭제</button><button type="button" id="mask-undo" disabled title="내 작업 되돌리기 (Ctrl+Z)">↶ 되돌리기</button><button type="button" id="mask-redo" disabled title="내 작업 다시 실행 (Ctrl+Shift+Z)">↷ 다시 실행</button></div><p class="annotation-help">누구나 함께 편집 · 드래그하여 가리기 · 클릭 후 Delete · Ctrl+Z</p><span class="annotation-status" role="status" aria-live="polite"></span>';
   toolbar.append(controls);
   const mode=controls.querySelector('#mask-mode');
   const remove=controls.querySelector('#mask-delete');
@@ -68,11 +70,11 @@
     remove.disabled=!selected;
     undoButton.disabled=!undo.length;redoButton.disabled=!redo.length;
     document.documentElement.classList.toggle('mask-mode-on',enabled);
-    status.textContent=saveFailed?'이 브라우저에서 저장할 수 없습니다.':(selected?'선택됨 · Delete로 삭제':'가리개 '+items.length+'개 · 이 브라우저에 자동 저장');
+    status.textContent=(selected?'선택됨':'가리개 '+items.length+'개')+' · '+syncStatus;
   }
   function persist() {
     try {
-      localStorage.setItem(storageKey,JSON.stringify({version:1,items,undo,redo}));
+      localStorage.setItem(storageKey,JSON.stringify({version:2,undo,redo}));
       saveFailed=false;
     } catch { saveFailed=true; }
     updateControls();
@@ -90,12 +92,14 @@
     items=change(items,action);
     undo.push(action);undo=undo.slice(-100);redo=[];
     selected=null;persist();render();
+    shared?.submit(action.type==='add'?'put':'delete',action.item.id,action.item);
   }
   function travel(back) {
     const from=back?undo:redo,to=back?redo:undo;
     const action=from.pop();if(!action)return;
     items=change(items,action,back);to.push(action);
     selected=null;window.getSelection()?.removeAllRanges();persist();render();
+    shared?.submit((action.type==='add')!==back?'put':'delete',action.item.id,action.item);
   }
   function deleteSelected() {
     const index=items.findIndex(item=>item.id===selected);
@@ -213,5 +217,16 @@
   window.addEventListener('afterprint',scheduleRender);
   document.fonts.ready.then(scheduleRender);
   for(const image of document.images)if(!image.complete)image.addEventListener('load',scheduleRender,{once:true});
+  shared=new window.KeySharedMasks({
+    url:'https://ralmcoad-key-annotations.denma.chatgpt.site/api/masks',
+    document:location.pathname.split('/').pop().replace(/\.html$/,''),
+    storage:{getItem:key=>window.localStorage.getItem(key),setItem:(key,value)=>window.localStorage.setItem(key,value)},key:'key-reader-shared-masks:v2:'+location.pathname,initialItems:items,
+    onChange:next=>{items=next.filter(validItem);if(selected && !items.some(item=>item.id===selected))selected=null;render();},
+    onStatus:state=>{syncStatus=state;updateControls();},
+  });
+  shared.display();void shared.refresh();
+  setInterval(()=>{if(document.visibilityState==='visible')void shared.refresh();},5000);
+  window.addEventListener('online',()=>void shared.refresh());
+  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')void shared.refresh();});
   updateControls();scheduleRender();
 })();
