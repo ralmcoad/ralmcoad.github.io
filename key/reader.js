@@ -7,6 +7,37 @@
   const zoom=document.querySelector('#zoom-select');
   const pageSelect=document.querySelector('#page-select');
   const topicSelect=document.querySelector('#topic-select');
+  const top=toolbar.querySelector('.reader-top');
+  const subjects=toolbar.querySelector('.subject-nav');
+  subjects.id='reader-subject-nav';
+  toolbar.querySelector('.reader-controls').id='reader-controls';
+  top.insertBefore(subjects,document.querySelector('#print-document'));
+  const toolbarToggle=document.createElement('button');
+  toolbarToggle.type='button';toolbarToggle.id='toolbar-toggle';
+  toolbarToggle.setAttribute('aria-controls','reader-subject-nav reader-controls reader-annotations');
+  top.append(toolbarToggle);
+  document.addEventListener('DOMContentLoaded',()=>{
+    const annotations=toolbar.querySelector('.annotation-controls');
+    if(annotations)annotations.id='reader-annotations';
+  },{once:true});
+  const toolbarKey='key-reader-toolbar-collapsed:v1';
+  function setToolbarCollapsed(collapsed){
+    toolbar.classList.toggle('is-collapsed',collapsed);
+    toolbarToggle.textContent=collapsed?'도구 펼치기 ⌄':'접기 ⌃';
+    toolbarToggle.setAttribute('aria-expanded',String(!collapsed));
+    toolbarToggle.setAttribute('aria-label',collapsed?'문서 도구 펼치기':'문서 도구 접기');
+    toolbarToggle.title=collapsed?'과목 이동·주제·배율·가리개 도구 펼치기':'상단 도구를 접어 문서를 더 넓게 보기';
+    root.style.setProperty('--reader-offset',toolbar.getBoundingClientRect().height+'px');
+  }
+  let toolbarCollapsed=false;
+  try{toolbarCollapsed=localStorage.getItem(toolbarKey)==='true';}catch{}
+  setToolbarCollapsed(toolbarCollapsed);
+  toolbarToggle.addEventListener('click',()=>{
+    const previousHeight=toolbar.getBoundingClientRect().height,previousScroll=window.scrollY;
+    toolbarCollapsed=!toolbarCollapsed;setToolbarCollapsed(toolbarCollapsed);
+    try{localStorage.setItem(toolbarKey,String(toolbarCollapsed));}catch{}
+    if(previousScroll>previousHeight)window.scrollTo({top:previousScroll+toolbar.getBoundingClientRect().height-previousHeight,behavior:'instant'});
+  });
   const steps=[0.5,0.75,1,1.25,1.5,2];
   let scale=1;
   root.classList.add('reader-loading');
