@@ -12,7 +12,7 @@
   const escape = value => String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
   const clean = title => title.replace(/^@/, '').replace(/_/g, ' ').replace(/╱/g, ' / ');
   const size = bytes => bytes < 1048576 ? Math.round(bytes / 1024) + ' KB' : (bytes / 1048576).toFixed(1) + ' MB';
-  const summaries = {gastrointestinal:'위·대장 질환, 위장관 출혈과 염증',hepatobiliary:'간질환, 담낭·담관 질환과 췌장염',renal:'급성·만성 신질환, 사구체 질환과 전해질',endocrine:'갑상선·부신 질환, 당뇨와 호르몬',cardiology:'고혈압, 부정맥, 심부전과 혈관 질환',obstetrics:'산전관리, 분만, 산후 질환',gynecology:'월경·생식내분비, 유방과 부인과 질환'};
+  const summaries = {gastrointestinal:'위·대장 질환, 위장관 출혈과 염증',hepatobiliary:'간질환, 담낭·담관 질환과 췌장염',renal:'급성·만성 신질환, 사구체 질환과 전해질',endocrine:'갑상선·부신 질환, 당뇨와 호르몬',cardiology:'고혈압, 부정맥, 심부전과 혈관 질환',respiratory:'천식·COPD, 폐렴·결핵과 폐·흉막 질환',obstetrics:'산전관리, 분만, 산후 질환',gynecology:'월경·생식내분비, 유방과 부인과 질환'};
   function render() {
     const query = normalize(search.value.trim());
     const selected = docs.filter(d => (filter === '전체' || d.group === filter) && (!query || normalize(d.name + ' ' + d.titles.join(' ')).includes(query)));
