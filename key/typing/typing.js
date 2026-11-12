@@ -144,7 +144,7 @@ setInterval(()=>{if(runningSince!==null)renderStats();},300);
 async function load(){
   updateToday();
   try{
-    const response=await fetch('corpus.json?v=1');if(!response.ok)throw new Error('Corpus unavailable');
+    const response=await fetch('corpus.json?v=2');if(!response.ok)throw new Error('Corpus unavailable');
     corpus=await response.json();
     if(!Array.isArray(corpus.subjects)||!corpus.subjects.length)throw new Error('Empty corpus');
     const settings=getSettings(),params=new URLSearchParams(location.search);
