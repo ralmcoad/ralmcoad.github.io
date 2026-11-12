@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#244c42">
+  <meta name="description" content="나의 의학 Key message 본문으로 하는 과목별 타자연습.">
+  <title>타자연습 · Key message</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css?v=1">
+  <link rel="stylesheet" href="typing.css?v=1">
+  <script type="module" src="typing.js?v=1"></script>
+</head>
+<body>
+  <a class="skip" href="#typing-input">입력란으로 건너뛰기</a>
+  <header class="site-header wrap">
+    <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">k<span>m</span></span><span>Key message<small>나의 의학 노트</small></span></a>
+    <nav aria-label="주 메뉴"><a href="../">자료실 ↗</a><span class="active">타자연습</span></nav>
+  </header>
+  <main class="wrap">
+    <section class="intro">
+      <div><p class="eyebrow"><span></span> KEY MESSAGE / TYPING PRACTICE</p><h1>손으로 쓰며,<br class="mobile-break"> 한 번 더 기억하기.</h1><p class="lead">익숙한 노트의 문장을 천천히 따라 쳐 보세요.</p></div>
+      <div class="today"><span>오늘 완성한 문장</span><strong id="today-count">0</strong><small>차곡차곡 쌓이는 복습</small></div>
+    </section>
+    <section class="workspace" aria-label="타자연습">
+      <div class="settings">
+        <label>과목<select id="subject" disabled><option>불러오는 중…</option></select></label>
+        <label class="topic-select">주제<select id="topic" disabled><option>전체 주제</option></select></label>
+        <label>순서<select id="order"><option value="ordered">노트 순서</option><option value="random">무작위</option></select></label>
+        <label>연습량<select id="limit"><option value="10">10문장</option><option value="20">20문장</option><option value="50">50문장</option><option value="all">전체</option></select></label>
+      </div>
+      <div class="session-bar"><span id="pool-count">연습 문장을 불러오고 있습니다.</span><button id="restart" class="text-button" disabled>처음부터 다시 ↻</button></div>
+      <div class="stats" aria-label="이번 연습 기록">
+        <div><span>현재 속도 <button class="info" aria-label="타수 계산 안내" title="한글 자음·모음과 영문·숫자·공백의 정확한 입력 수 / 분">ⓘ</button></span><strong id="speed">0<small>타/분</small></strong></div>
+        <div><span>정확도</span><strong id="accuracy">—<small>%</small></strong></div>
+        <div><span>완성한 문장</span><strong id="completed">0<small>/ 10</small></strong></div>
+        <div><span>집중한 시간</span><strong id="elapsed">00:00</strong></div>
+      </div>
+      <section class="practice-paper" id="practice" aria-label="현재 문장">
+        <div class="paper-top"><div><span class="subject-tag" id="subject-label">KEY MESSAGE</span><h2 id="topic-title">문장 준비 중</h2></div><a id="source-link" href="../" target="_blank" rel="noopener">원문 보기 ↗</a></div>
+        <div class="progress-track" role="progressbar" aria-label="연습 진행" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" id="progress"><span id="progress-fill"></span></div>
+        <div class="sentence-label"><span>따라 쓸 문장</span><span id="sentence-number">01 / 10</span></div>
+        <p id="target" class="target" aria-label="따라 쓸 문장"></p>
+        <label class="sr-only" for="typing-input">위 문장을 여기에 입력하세요</label>
+        <textarea id="typing-input" rows="3" placeholder="여기를 눌러 위 문장을 입력하세요." autocomplete="off" autocapitalize="off" spellcheck="false" autocorrect="off" enterkeyhint="next" aria-describedby="feedback" disabled></textarea>
+        <div class="input-bottom"><p id="feedback" role="status" aria-live="polite">첫 글자를 입력하면 시작됩니다.</p><span id="characters">0자</span></div>
+        <div class="paper-actions"><button id="skip" class="secondary" disabled>이 문장 건너뛰기</button><button id="next" class="primary" disabled>다음 문장 <kbd>Enter ↵</kbd></button></div>
+      </section>
+      <section class="summary" id="summary" hidden aria-labelledby="summary-title">
+        <span class="summary-mark" aria-hidden="true">✓</span><p class="eyebrow">PRACTICE COMPLETE</p><h2 id="summary-title">한 번 더, 머릿속에 남겼어요.</h2><p id="summary-text"></p><div class="summary-stats" id="summary-stats"></div><div class="summary-actions"><button id="again" class="primary">이어서 연습하기 →</button><button id="repeat" class="secondary">같은 문장 다시 연습</button></div>
+      </section>
+      <div id="load-error" class="error-panel" hidden role="alert"><p>문장을 불러오지 못했습니다. 연결을 확인한 후 다시 시도해 주세요.</p><button id="reload" class="primary">다시 불러오기</button></div>
+    </section>
+    <aside class="tips"><p><strong>작은 반복이 만드는 기억.</strong> 모두 맞게 입력한 뒤 <kbd>Enter</kbd>를 누르면 다음 문장으로 넘어갑니다. 오타는 <kbd>Backspace</kbd>로 고칠 수 있어요.</p><details><summary>입력 기호와 기록 안내</summary><p>Key message의 본문 문장과 목록을 사용합니다. 사진·표·각주는 원문에서 확인할 수 있습니다. 화살표(→)는 <b>-></b>, 곱하기(×)는 <b>x</b>, 위·아래 화살표는 <b>상승·감소</b>로 표시합니다. 수식은 키보드로 입력할 수 있는 한 줄 형태입니다.</p><p>타수는 정확히 입력한 한글 자음·모음과 영문·숫자·공백을 분당 입력 수로 환산합니다. 정확도에는 고치기 전 오타도 포함됩니다. 입력란을 벗어나면 시간이 멈춥니다. 오늘의 완성 문장 수는 이 브라우저에 저장됩니다.</p></details></aside>
+  </main>
+  <footer class="wrap"><span>Key message / 타자연습</span><span id="corpus-meta">나의 노트, 나의 속도로.</span></footer>
+  <noscript><p class="wrap">타자연습에는 자바스크립트가 필요합니다. 브라우저 설정에서 켜 주세요.</p></noscript>
+</body>
+</html>
