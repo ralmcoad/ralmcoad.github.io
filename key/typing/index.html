@@ -10,7 +10,7 @@
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="fonts.css?v=1">
   <link rel="stylesheet" href="typing.css?v=1">
-  <script type="module" src="typing.js?v=2"></script>
+  <script type="module" src="typing.js?v=3"></script>
 </head>
 <body>
   <a class="skip" href="#typing-input">입력란으로 건너뛰기</a>
@@ -32,7 +32,7 @@
       </div>
       <div class="session-bar"><span id="pool-count">연습 문장을 불러오고 있습니다.</span><button id="restart" class="text-button" disabled>처음부터 다시 ↻</button></div>
       <div class="stats" aria-label="이번 연습 기록">
-        <div><span>현재 속도 <button class="info" aria-label="타수 계산 안내" title="한글 자음·모음과 영문·숫자·공백의 정확한 입력 수 / 분">ⓘ</button></span><strong id="speed">0<small>타/분</small></strong></div>
+        <div><span>현재 속도 <button class="info" aria-label="타수 계산 안내" title="한글 자음·모음과 영문·숫자·기호의 정확한 입력 수 / 분 (공백 제외)">ⓘ</button></span><strong id="speed">0<small>타/분</small></strong></div>
         <div><span>정확도</span><strong id="accuracy">—<small>%</small></strong></div>
         <div><span>완성한 문장</span><strong id="completed">0<small>/ 10</small></strong></div>
         <div><span>집중한 시간</span><strong id="elapsed">00:00</strong></div>
@@ -52,7 +52,7 @@
       </section>
       <div id="load-error" class="error-panel" hidden role="alert"><p>문장을 불러오지 못했습니다. 연결을 확인한 후 다시 시도해 주세요.</p><button id="reload" class="primary">다시 불러오기</button></div>
     </section>
-    <aside class="tips"><p><strong>작은 반복이 만드는 기억.</strong> 모두 맞게 입력한 뒤 <kbd>Enter</kbd>를 누르면 다음 문장으로 넘어갑니다. 오타는 <kbd>Backspace</kbd>로 고칠 수 있어요.</p><details><summary>입력 기호와 기록 안내</summary><p>Key message의 번호 항목과 하위 설명·괄호 내용을 함께 연습합니다. 쉼표나 연결 표현으로 이어지는 항목도 묶어 문맥을 유지합니다. 사진·표·각주는 원문에서 확인할 수 있습니다. 화살표(→)는 <b>-></b>, 곱하기(×)는 <b>x</b>, 위·아래 화살표는 <b>상승·감소</b>로 표시합니다. 수식은 키보드로 입력할 수 있는 한 줄 형태입니다.</p><p>타수는 정확히 입력한 한글 자음·모음과 영문·숫자·공백을 분당 입력 수로 환산합니다. 정확도에는 고치기 전 오타도 포함됩니다. 입력란을 벗어나면 시간이 멈춥니다. 오늘의 완성 문장 수는 이 브라우저에 저장됩니다.</p></details></aside>
+    <aside class="tips"><p><strong>작은 반복이 만드는 기억.</strong> 띄어쓰기는 달라도 괜찮아요. 글자·기호를 맞게 입력한 뒤 <kbd>Enter</kbd>를 누르면 다음 문장으로 넘어갑니다. 오타는 <kbd>Backspace</kbd>로 고칠 수 있어요.</p><details><summary>입력 기호와 기록 안내</summary><p>Key message의 번호 항목과 하위 설명·괄호 내용을 함께 연습합니다. 쉼표나 연결 표현으로 이어지는 항목도 묶어 문맥을 유지합니다. 사진·표·각주는 원문에서 확인할 수 있습니다. 화살표(→)는 <b>-></b>, 곱하기(×)는 <b>x</b>, 위·아래 화살표는 <b>상승·감소</b>로 표시합니다. 수식은 키보드로 입력할 수 있는 한 줄 형태입니다.</p><p>띄어쓰기 차이는 정답 판정과 정확도에 영향을 주지 않습니다. 타수는 공백을 제외한 정확한 한글 자음·모음과 영문·숫자·기호의 분당 입력 수입니다. 정확도에는 고치기 전 글자·기호 오타도 포함됩니다. 입력란을 벗어나면 시간이 멈춥니다. 오늘의 완성 문장 수는 이 브라우저에 저장됩니다.</p></details></aside>
   </main>
   <footer class="wrap"><span>Key message / 타자연습</span><span id="corpus-meta">나의 노트, 나의 속도로.</span></footer>
   <noscript><p class="wrap">타자연습에는 자바스크립트가 필요합니다. 브라우저 설정에서 켜 주세요.</p></noscript>

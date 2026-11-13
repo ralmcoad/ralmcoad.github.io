@@ -1,5 +1,7 @@
 // Pure helpers shared by the UI and focused input/scoring checks.
 export const normalize = text => text.normalize('NFC').replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/\u00a0/g, ' ');
+// Keep the displayed/source text intact; compare only non-whitespace characters.
+export const comparable = text => normalize(text).replace(/\s/gu, '');
 export function strokes(text) {
   // Standard Korean typing count: initial consonant, vowel, final consonant.
   // Compound vowels/finals take two keys; Shift does not add another key.
@@ -13,7 +15,7 @@ export function strokes(text) {
   },0);
 }
 export function insertedAttempt(previous, next, target) {
-  const a=Array.from(normalize(previous)), b=Array.from(normalize(next)), t=Array.from(target);
+  const a=Array.from(comparable(previous)), b=Array.from(comparable(next)), t=Array.from(comparable(target));
   let start=0,endA=a.length,endB=b.length;
   while(start<endA && start<endB && a[start]===b[start]) start++;
   while(endA>start && endB>start && a[endA-1]===b[endB-1]) {endA--;endB--;}
@@ -22,10 +24,10 @@ export function insertedAttempt(previous, next, target) {
   return {attempts,errors};
 }
 export function measure(value,target) {
-  const input=Array.from(normalize(value)), expected=Array.from(target);
+  const input=Array.from(comparable(value)), expected=Array.from(comparable(target));
   let correct=0,correctStrokes=0;
   for(let i=0;i<input.length;i++) if(input[i]===expected[i]) {correct++;correctStrokes+=strokes(input[i]);}
-  return {correct,correctStrokes,wrong:input.length-correct,complete:normalize(value)===target};
+  return {correct,correctStrokes,wrong:input.length-correct,complete:expected.length>0&&comparable(value)===comparable(target)};
 }
 export function shuffled(values,random=Math.random) {
   const out=[...values];

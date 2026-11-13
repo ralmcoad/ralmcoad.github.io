@@ -1,4 +1,4 @@
-import {normalize,insertedAttempt,measure,shuffled} from './core.mjs?v=1';
+import {normalize,comparable,insertedAttempt,measure,shuffled} from './core.mjs?v=2';
 
 const $=id=>document.getElementById(id);
 const input=$('typing-input'),target=$('target');
@@ -32,19 +32,23 @@ function renderStats(){
 function feedback(text,state=''){$('feedback').textContent=text;$('feedback').className=state;}
 function highlight(){
   const item=current();if(!item)return;
-  const expected=Array.from(item.text),actual=Array.from(normalize(input.value));
-  const pending=Array.from(normalize(previous)).length;
+  const expected=Array.from(item.text),actual=Array.from(comparable(input.value));
+  const pending=Array.from(comparable(previous)).length;
+  const expectedLength=Array.from(comparable(item.text)).length;
   const fragment=document.createDocumentFragment();
-  expected.forEach((char,i)=>{
+  let position=0;
+  expected.forEach(char=>{
     const span=document.createElement('span');span.textContent=char;
+    if(/\s/u.test(char)){fragment.append(span);return;}
+    const i=position++;
     if(composition&&i>=Math.max(0,pending-1)&&i<actual.length)span.className='composing';
     else if(i<actual.length)span.className=actual[i]===char?'correct':'wrong';
     else if(i===actual.length)span.className='cursor';
     fragment.append(span);
   });
-  if(actual.length>expected.length){const extra=document.createElement('span');extra.className='extra';extra.textContent=actual.slice(expected.length).join('');fragment.append(extra);}
+  if(actual.length>expectedLength){const extra=document.createElement('span');extra.className='extra';extra.textContent=actual.slice(expectedLength).join('');fragment.append(extra);}
   target.replaceChildren(fragment);
-  $('characters').textContent=`${actual.length} / ${expected.length}자`;
+  $('characters').textContent=`공백 제외 ${actual.length} / ${expectedLength}자`;
 }
 function evaluateInput(){
   if(!current()||done)return;
@@ -117,7 +121,7 @@ input.addEventListener('compositionstart',()=>{composition=true;});
 input.addEventListener('compositionend',()=>{composition=false;lastComposition=performance.now();evaluateInput();});
 input.addEventListener('input',event=>{
   if(done)return;
-  if(!started&&input.value){started=true;resume();}
+  if(!started&&comparable(input.value)){started=true;resume();}
   if(composition||event.isComposing){highlight();return;}
   evaluateInput();
 });
