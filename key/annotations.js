@@ -25,7 +25,11 @@
     next.splice(Math.min(action.index,next.length),0,action.item);
     return next;
   }
-  if(typeof module==='object' && module.exports) module.exports={locate,change};
+  function trimBounds(text) {
+    const start=text.length-text.trimStart().length;
+    return {start,end:Math.max(start,text.trimEnd().length)};
+  }
+  if(typeof module==='object' && module.exports) module.exports={locate,change,trimBounds};
   if(typeof document==='undefined') return;
 
   const pages=[...document.querySelectorAll('.page')];
@@ -49,7 +53,7 @@
 
   const controls=document.createElement('div');
   controls.className='annotation-controls';
-  controls.innerHTML='<div class="annotation-actions"><button type="button" id="mask-mode" aria-pressed="true" title="켜면 가리개를 표시하고 드래그로 추가할 수 있습니다. 끄면 본문이 보이며 인쇄에도 그대로 반영됩니다.">가리기 켜짐</button><button type="button" id="mask-delete" disabled title="선택한 가리개 삭제 (Delete)">삭제</button><button type="button" id="mask-undo" disabled title="내 작업 되돌리기 (Ctrl+Z)">↶ 되돌리기</button><button type="button" id="mask-redo" disabled title="내 작업 다시 실행 (Ctrl+Shift+Z)">↷ 다시 실행</button></div><p class="annotation-help">누구나 함께 편집 · 드래그하여 가리기 · 클릭 후 Delete · Ctrl+Z</p><span class="annotation-status" role="status" aria-live="polite"></span>';
+  controls.innerHTML='<div class="annotation-actions"><button type="button" id="mask-mode" aria-pressed="true" title="켜면 가리개를 표시하고 드래그로 추가할 수 있습니다. 끄면 본문이 보이며 인쇄에도 그대로 반영됩니다.">가리기 켜짐</button><button type="button" id="mask-delete" disabled title="선택한 가리개 삭제 (Delete / Ctrl+X)">삭제</button><button type="button" id="mask-undo" disabled title="내 작업 되돌리기 (Ctrl+Z)">↶ 되돌리기</button><button type="button" id="mask-redo" disabled title="내 작업 다시 실행 (Ctrl+Shift+Z)">↷ 다시 실행</button></div><p class="annotation-help">함께 편집 · 드래그로 가리기 · Delete/Ctrl+X 삭제 · Ctrl+Z 되돌리기</p><span class="annotation-status" role="status" aria-live="polite"></span>';
   toolbar.append(controls);
   const mode=controls.querySelector('#mask-mode');
   const remove=controls.querySelector('#mask-delete');
@@ -159,15 +163,41 @@
     });
     updateControls();
   }
+  function trimmedRange(source) {
+    const range=source.cloneRange(),text=range.toString(),bounds=trimBounds(text);
+    if(bounds.start===0 && bounds.end===text.length)return range;
+    if(bounds.start===bounds.end){range.collapse(true);return range;}
+    const root=range.commonAncestorContainer,nodes=[];
+    if(root.nodeType===Node.TEXT_NODE)nodes.push(root);
+    else {
+      const walk=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+      for(let node=walk.nextNode();node;node=walk.nextNode())nodes.push(node);
+    }
+    const prefix=document.createRange();prefix.selectNodeContents(root);prefix.setEnd(range.startContainer,range.startOffset);
+    const base=prefix.toString().length;
+    function point(offset){
+      for(const node of nodes){if(offset<=node.length)return [node,offset];offset-=node.length;}
+      return [nodes.at(-1),nodes.at(-1).length];
+    }
+    range.setStart(...point(base+bounds.start));range.setEnd(...point(base+bounds.end));
+    return range;
+  }
+  document.addEventListener('dblclick',event=>{
+    if(!event.target.closest('.page') || event.target.closest('input,textarea,[contenteditable]'))return;
+    const selection=window.getSelection();if(!selection?.rangeCount || selection.isCollapsed)return;
+    const range=trimmedRange(selection.getRangeAt(0));
+    selection.removeAllRanges();selection.addRange(range);
+  });
   function captureSelection() {
     const selection=window.getSelection();
     if(!enabled || !selection || selection.isCollapsed || !selection.rangeCount)return;
-    const source=selection.getRangeAt(0),parts=[];
+    const source=trimmedRange(selection.getRangeAt(0)),parts=[];
     for(const section of document.querySelectorAll('.section')) {
       if(!source.intersectsNode(section))continue;
-      const range=document.createRange();range.selectNodeContents(section);
+      let range=document.createRange();range.selectNodeContents(section);
       if(source.compareBoundaryPoints(Range.START_TO_START,range)>0)range.setStart(source.startContainer,source.startOffset);
       if(source.compareBoundaryPoints(Range.END_TO_END,range)<0)range.setEnd(source.endContainer,source.endOffset);
+      range=trimmedRange(range);
       if(range.collapsed || !range.toString().trim())continue;
       const prefix=document.createRange();prefix.selectNodeContents(section);prefix.setEnd(range.startContainer,range.startOffset);
       const start=prefix.toString().length,quote=range.toString(),text=section.textContent;
@@ -188,14 +218,19 @@
   });
   document.addEventListener('pointercancel',()=>{dragStarted=false;});
   document.addEventListener('keydown',event=>{
-    if(event.isComposing || event.altKey || event.target.closest('input,textarea,[contenteditable="true"],[contenteditable="plaintext-only"]'))return;
+    if(event.defaultPrevented || event.isComposing || event.altKey || event.target.closest('input,textarea,select,[contenteditable],dialog[open]'))return;
     if((event.ctrlKey||event.metaKey) && event.key.toLowerCase()==='z') {
       event.preventDefault();travel(!event.shiftKey);
     } else if((event.ctrlKey||event.metaKey) && event.key.toLowerCase()==='y') {
       event.preventDefault();travel(false);
-    } else if(event.key==='Delete' && selected) {
+    } else if(selected && enabled && (event.key==='Delete' || ((event.ctrlKey||event.metaKey) && !event.shiftKey && event.key.toLowerCase()==='x'))) {
       event.preventDefault();deleteSelected();
     } else if(event.key==='Escape')select(null);
+  });
+  // Browser/OS cut commands can dispatch cut without a preceding keydown.
+  document.addEventListener('cut',event=>{
+    if(event.defaultPrevented || !enabled || !selected || event.target.closest('input,textarea,select,[contenteditable],dialog[open]'))return;
+    event.preventDefault();deleteSelected();
   });
   mode.addEventListener('click',()=>{
     enabled=!enabled;select(null);window.getSelection()?.removeAllRanges();
