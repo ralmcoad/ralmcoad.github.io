@@ -49,7 +49,7 @@
 
   const controls=document.createElement('div');
   controls.className='annotation-controls';
-  controls.innerHTML='<div class="annotation-actions"><button type="button" id="mask-mode" aria-pressed="true" title="켜면 글자를 드래그할 때 회색으로 가립니다. 끄면 일반 글자 선택을 할 수 있습니다.">가리기 켜짐</button><button type="button" id="mask-delete" disabled title="선택한 가리개 삭제 (Delete)">삭제</button><button type="button" id="mask-undo" disabled title="내 작업 되돌리기 (Ctrl+Z)">↶ 되돌리기</button><button type="button" id="mask-redo" disabled title="내 작업 다시 실행 (Ctrl+Shift+Z)">↷ 다시 실행</button></div><p class="annotation-help">누구나 함께 편집 · 드래그하여 가리기 · 클릭 후 Delete · Ctrl+Z</p><span class="annotation-status" role="status" aria-live="polite"></span>';
+  controls.innerHTML='<div class="annotation-actions"><button type="button" id="mask-mode" aria-pressed="true" title="켜면 가리개를 표시하고 드래그로 추가할 수 있습니다. 끄면 본문이 보이며 인쇄에도 그대로 반영됩니다.">가리기 켜짐</button><button type="button" id="mask-delete" disabled title="선택한 가리개 삭제 (Delete)">삭제</button><button type="button" id="mask-undo" disabled title="내 작업 되돌리기 (Ctrl+Z)">↶ 되돌리기</button><button type="button" id="mask-redo" disabled title="내 작업 다시 실행 (Ctrl+Shift+Z)">↷ 다시 실행</button></div><p class="annotation-help">누구나 함께 편집 · 드래그하여 가리기 · 클릭 후 Delete · Ctrl+Z</p><span class="annotation-status" role="status" aria-live="polite"></span>';
   toolbar.append(controls);
   const mode=controls.querySelector('#mask-mode');
   const remove=controls.querySelector('#mask-delete');
@@ -67,7 +67,7 @@
   function updateControls() {
     mode.textContent=enabled?'가리기 켜짐':'가리기 꺼짐';
     mode.setAttribute('aria-pressed',String(enabled));
-    remove.disabled=!selected;
+    remove.disabled=!enabled || !selected;
     undoButton.disabled=!undo.length;redoButton.disabled=!redo.length;
     document.documentElement.classList.toggle('mask-mode-on',enabled);
     status.textContent=(selected?'선택됨':'가리개 '+items.length+'개')+' · '+syncStatus;
@@ -198,7 +198,7 @@
     } else if(event.key==='Escape')select(null);
   });
   mode.addEventListener('click',()=>{
-    enabled=!enabled;window.getSelection()?.removeAllRanges();
+    enabled=!enabled;select(null);window.getSelection()?.removeAllRanges();
     try{localStorage.setItem(modeKey,enabled?'on':'off');}catch{saveFailed=true;}
     updateControls();
   });
