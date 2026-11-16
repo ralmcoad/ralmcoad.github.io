@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>전체 인쇄 · Key message</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="print.css?v=1">
+  <script src="../data.js?v=22" defer></script>
+  <script src="print.js?v=1" defer></script>
+</head>
+<body>
+  <header class="print-tools">
+    <a href="../">← 자료실</a>
+    <strong>전체 인쇄</strong>
+    <span id="print-status" role="status" aria-live="polite">문서를 준비하고 있습니다…</span>
+    <button id="print-masks" type="button" aria-pressed="true" disabled>가리기 켜짐</button>
+    <button id="print-all" type="button" disabled>전체 인쇄</button>
+    <button id="retry" type="button" hidden>다시 준비</button>
+  </header>
+  <main id="print-pages" aria-label="전체 과목 인쇄 미리보기"></main>
+  <noscript>문서를 준비하려면 자바스크립트가 필요합니다.</noscript>
+</body>
+</html>

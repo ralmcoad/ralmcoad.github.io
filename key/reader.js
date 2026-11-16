@@ -66,6 +66,10 @@
   pageSelect.addEventListener('change',()=>goTo(pageSelect.value));
   topicSelect.addEventListener('change',()=>{if(topicSelect.value){history.replaceState(null,'','#'+topicSelect.value);goTo(topicSelect.value);}});
   document.querySelector('#print-document').addEventListener('click',()=>window.print());
+  document.querySelector('#print-library')?.addEventListener('click',()=>{
+    const mode=root.classList.contains('mask-mode-on')?'on':'off';
+    window.open('../print/?auto=1&masks='+mode,'_blank','noopener');
+  });
   window.addEventListener('resize',applyZoom);
   let ticking=false;
   window.addEventListener('scroll',()=>{if(ticking)return;ticking=true;requestAnimationFrame(()=>{let nearest=pages[0];for(const page of pages){if(page.getBoundingClientRect().top<=offset()+70)nearest=page;}pageSelect.value=nearest.id;ticking=false;});},{passive:true});
