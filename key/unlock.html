@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#244c42">
+  <title>비밀번호 · Key message</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="unlock.css?v=1">
+  <script src="access.js?v=1" data-entry-page="unlock" defer></script>
+</head>
+<body>
+  <main class="entry-card">
+    <div class="entry-brand" aria-label="Key message"><span aria-hidden="true">km</span><strong>Key message<small>나의 의학 노트</small></strong></div>
+    <h1>비밀번호를 입력해 주세요</h1>
+    <p class="entry-description">처음 사용하는 브라우저에서 한 번만 확인합니다.</p>
+    <form id="entry-form" method="post" action="unlock.html">
+      <label class="entry-label" for="entry-password">비밀번호</label>
+      <input id="entry-password" name="password" type="password" inputmode="numeric" autocomplete="current-password" maxlength="4" required aria-describedby="entry-error" autofocus>
+      <label class="entry-remember"><input id="entry-remember" type="checkbox" checked>이 브라우저에서 기억하기</label>
+      <p id="entry-error" class="entry-error" role="alert" aria-live="polite"></p>
+      <button id="entry-submit" type="submit" disabled>열기</button>
+    </form>
+    <noscript><p class="entry-error">비밀번호를 확인하려면 브라우저의 자바스크립트를 켜 주세요.</p></noscript>
+  </main>
+</body>
+</html>

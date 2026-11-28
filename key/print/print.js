@@ -1,5 +1,6 @@
 (() => {
   'use strict';
+  if(!window.KeyMessageEntry?.unlocked)return;
   const library=window.LIBRARY,container=document.querySelector('#print-pages');
   const status=document.querySelector('#print-status'),printButton=document.querySelector('#print-all');
   const modeButton=document.querySelector('#print-masks'),retry=document.querySelector('#retry');
@@ -82,7 +83,7 @@
   }
   async function mount(source,sheet,index){
     const doc=source.doc.cloneNode(true);
-    for(const el of doc.querySelectorAll('script,base'))el.remove();
+    for(const el of doc.querySelectorAll('script,base,#key-entry-gate'))el.remove();
     const base=doc.createElement('base');base.href=source.url;doc.head.prepend(base);
     const style=doc.createElement('style');style.textContent=frameCSS;doc.head.append(style);
     doc.body.replaceChildren();
